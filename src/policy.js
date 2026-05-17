@@ -3,6 +3,8 @@ import * as path from "node:path";
 
 import * as capabilities from "./capabilities.js";
 
+const cwd = path.resolve(".");
+
 /**
  * @param {SBOM} sbom
  * @param {CBOM} cbom
@@ -312,8 +314,6 @@ function isAllowedFileType({ addons }) {
 function normalizePath(fullPath) {
 	return fullPath.replace(cwd, ".");
 }
-
-const cwd = path.resolve(".");
 
 /**
  * @typedef {Symbol} Strategy

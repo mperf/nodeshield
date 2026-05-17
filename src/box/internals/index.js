@@ -6,3 +6,5 @@ export { createHttpShimCodeCjs, createHttpShimCodeEsm } from "./http.js";
 export { createDnsShimCodeCjs, createDnsShimCodeEsm } from "./dns.js";
 export { createDgramShimCodeCjs, createDgramShimCodeEsm } from "./dgram.js";
 export { createFsShimCodeCjs, createFsShimCodeEsm } from "./fs.js";
+export { createChildProcessShimCodeCjs, createChildProcessShimCodeEsm } from "./child_process.js";
+export { createCryptoShimCodeCjs, createCryptoShimCodeEsm } from "./crypto.js";

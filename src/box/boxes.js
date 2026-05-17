@@ -20,6 +20,8 @@ import {
 	createDgramShimCodeEsm,
 	createFsShimCodeCjs,
 	createFsShimCodeEsm,
+	createChildProcessShimCodeCjs,
+	createChildProcessShimCodeEsm,
 } from "./internals/index.js";
 import { noisyName, policyToPermissions } from "./misc.js";
 import { generateBoxCjs } from "./cjs/index.js";
@@ -91,6 +93,16 @@ function generateHelpers(root, nameGenerator) {
 	const fsMjs = path.resolve(dir, "fs.mjs");
 	fs.writeFileSync(fsCjs, createFsShimCodeCjs());
 	fs.writeFileSync(fsMjs, createFsShimCodeEsm());
+
+	const cryptoCjs = path.resolve(dir, "crypto.cjs");
+	const cryptoMjs = path.resolve(dir, "crypto.mjs");
+	fs.writeFileSync(cryptoCjs, createCryptoShimCodeCjs());
+	fs.writeFileSync(cryptoMjs, createCryptoShimCodeEsm());
+
+	const childProcessCjs = path.resolve(dir, "child_process.cjs");
+	const childProcessMjs = path.resolve(dir, "child_process.mjs");
+	fs.writeFileSync(childProcessCjs, createChildProcessShimCodeCjs());
+	fs.writeFileSync(childProcessMjs, createChildProcessShimCodeEsm());
 
 	// NOTE: cannot generate both CJS and MJS because they would be evaluated
 	// both, leading to the latter erroring because all the globals have already
