@@ -4,7 +4,23 @@ export const Names = Object.freeze({
 	FILE_SYSTEM: "file-system",
 	EXECUTE_COMMAND: "command",
 	EXECUTE_CODE: "code",
+	// Legacy coarse capability for backwards compatibility
 	NETWORK: "network",
+	// Fine-grained network sub-capabilities
+	NETWORK_HTTPS: "network-https",
+	NETWORK_HTTP: "network-http",
+	NETWORK_IP: "network-ip",
+	NETWORK_DNS: "network-dns",
+	NETWORK_UDP: "network-udp",
+	NETWORK_HTTPS: "network-https",
+	NETWORK_HTTP: "network-http",
+	NETWORK_IP: "network-ip",
+	NETWORK_DNS: "network-dns",
+	NETWORK_UDP: "network-udp",
+	// Fine-grained filesystem sub-capabilities
+	FS_READ: "fs-read",
+	FS_WRITE: "fs-write",
+	FS_META: "fs-meta",
 	SYSTEM: "system",
 });
 
@@ -36,5 +52,15 @@ export const Map = Object.freeze({
 		"tls",
 		"node:tls",
 	],
+	// Sub-capability mappings for finer-grained enforcement
+	[Names.NETWORK_HTTPS]: ["https", "node:https", "node:http2", "http2"],
+	[Names.NETWORK_HTTP]: ["http", "node:http"],
+	[Names.NETWORK_IP]: ["net", "node:net", "tls", "node:tls"],
+	[Names.NETWORK_DNS]: ["dns", "node:dns", "dns/promises", "node:dns/promises"],
+	[Names.NETWORK_UDP]: ["dgram", "node:dgram"],
+	// Filesystem sub-capability mappings
+	[Names.FS_READ]: ["fs", "node:fs", "fs/promises", "node:fs/promises"],
+	[Names.FS_WRITE]: ["fs", "node:fs", "fs/promises", "node:fs/promises"],
+	[Names.FS_META]: ["fs", "node:fs", "fs/promises", "node:fs/promises"],
 	[Names.SYSTEM]: ["os", "node:os", "process", "node:process"],
 });

@@ -91,6 +91,15 @@ const ___nameImport___ = (function () {
 			);
 		}
 
+		// Special-case 'http' and 'https' imports to use the internal shim
+		// implementation.
+		if (specifier === "http" || specifier === "node:http") {
+			return import("___valueInternalModulesPathUrl___/http.mjs").catch(() => import("node:http"));
+		}
+		if (specifier === "https" || specifier === "node:https") {
+			return import("___valueInternalModulesPathUrl___/https.mjs").catch(() => import("node:https"));
+		}
+
 		/// If it is allowed to import specifier, import it and return the result.
 		// ___namePrimordials___.ConsoleLog(`[A] importing '${specifier}' allowed in '___who___'`);
 		return import(specifier, extra);

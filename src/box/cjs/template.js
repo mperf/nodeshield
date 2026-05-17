@@ -135,6 +135,23 @@ const [___nameImport___, ___nameGuestRequire___] = (function () {
 			);
 		}
 
+		// Special-case 'http' and 'https' to return internal shims that enforce
+		// per-call network checks while preserving the module shape.
+		if (specifier === "http" || specifier === "node:http") {
+			try {
+				return ___nameHostRequire___("___valueInternalModulesPathRelative___/http.cjs");
+			} catch {
+				return ___nameHostRequire___("node:http");
+			}
+		}
+		if (specifier === "https" || specifier === "node:https") {
+			try {
+				return ___nameHostRequire___("___valueInternalModulesPathRelative___/https.cjs");
+			} catch {
+				return ___nameHostRequire___("node:https");
+			}
+		}
+
 		/// If it is allowed to require specifier, require it and return the result.
 		// ___namePrimordials___.ConsoleLog(`[A] importing '${specifier}' allowed in '___who___'`);
 		return ___nameHostRequire___(specifier);

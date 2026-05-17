@@ -4,8 +4,9 @@
 .results/
 node_modules/
 .dockerignore
-
+docs/
 *.bkp
 *.log
 *.tar
 *.zip
+.DS_Store

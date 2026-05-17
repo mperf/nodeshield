@@ -1,10 +1,10 @@
 import * as path from "node:path";
 import * as fs from "node:fs";
 import { fileURLToPath } from "node:url";
+import { pathToFileURL } from "node:url";
 
 import * as acorn from "acorn";
 import * as estraverse from "estraverse";
-
 import { STRATEGIES } from "../../policy.js";
 import { codeGenerationPolicy } from "../misc.js";
 import { embed } from "../embed.js";
@@ -97,6 +97,24 @@ export function generateBoxMjs({
 	strategy,
 	file,
 }) {
+	// Ensure we have a valid absolute file:// URL for internal helper modules.
+	// `paths.hiddenUrl` should normally be provided by the caller, but if for
+	// some reason it's missing, construct it relative to the output directory
+	// so generated ESM imports don't end up as "undefined".
+	let internalModulesPathUrl = null;
+	if (paths && paths.hiddenUrl) {
+		internalModulesPathUrl = paths.hiddenUrl;
+	} else if (paths && paths.ogFileAbs && paths.hiddenRel) {
+		internalModulesPathUrl = pathToFileURL(
+			path.resolve(path.dirname(paths.ogFileAbs), paths.hiddenRel),
+		).href;
+	} else if (paths && paths.outDirAbs && paths.hiddenRel) {
+		internalModulesPathUrl = pathToFileURL(path.resolve(paths.outDirAbs, paths.hiddenRel)).href;
+	} else {
+		// Last-resort fallback: use current working directory so generated code
+		// has some value instead of `undefined` (helps diagnostics).
+		internalModulesPathUrl = pathToFileURL(process.cwd()).href;
+	}
 	let ast = null;
 	try {
 		ast = acorn.parse(src, {
@@ -108,7 +126,7 @@ export function generateBoxMjs({
 	}
 
 	const exports = getEsmExports({ ast, src, file });
-	const preamble = makePreamble({ ast, name, permissions, strategy });
+	const preamble = makePreamble({ ast, name, permissions, strategy, file });
 
 	const accessProps = {
 		id: file,
@@ -277,6 +295,7 @@ export function generateBoxMjs({
 			["___valueFilePath___", paths.ogFileAbs],
 			["___valueFileUrl___", `file://${paths.ogFileAbs}`],
 			["___valueInternalModulesPathRelative___", paths.hiddenRel],
+			["___valueInternalModulesPathUrl___", internalModulesPathUrl],
 		],
 
 		/// Miscellaneous
@@ -419,7 +438,7 @@ export function addPreamble(src, preamble) {
 	);
 }
 
-function makePreamble({ ast, name, permissions, strategy }) {
+function makePreamble({ ast, name, permissions, strategy, file }) {
 	const defines = {};
 	const check = (ident) => {
 		switch (ident) {
@@ -466,6 +485,8 @@ function makePreamble({ ast, name, permissions, strategy }) {
 		});
 	} catch {}
 
+	const embeddedContext = JSON.stringify({ id: file, strategy, permissions });
+
 	return `
 		var globalThis = ${name.for(kGlobalThis)};
 		var global = ${name.for(kGlobal)};
@@ -477,6 +498,7 @@ function makePreamble({ ast, name, permissions, strategy }) {
 		${defines.process ? "" : `var process = ${name.for(kProcess)};`}
 		${permissions.code || strategy === STRATEGIES.log ? "globalThis.eval = eval;" : ""}
 		${permissions.code || strategy === STRATEGIES.log ? "globalThis.Function = Function;" : ""}
+		try { globalThis.__nodeShieldContext = ${embeddedContext}; } catch (e) {}
 	`
 		.replace(/\s+/g, " ")
 		.trim();

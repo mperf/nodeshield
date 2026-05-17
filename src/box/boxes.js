@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import * as os from "node:os";
 import * as path from "node:path";
+import { pathToFileURL } from "node:url";
 
 import * as names from "./names.js";
 import {
@@ -11,6 +12,14 @@ import {
 	createPathShimCodeEsm,
 	createVmShimCodeCjs,
 	createVmShimCodeEsm,
+	createHttpShimCodeCjs,
+	createHttpShimCodeEsm,
+	createDnsShimCodeCjs,
+	createDnsShimCodeEsm,
+	createDgramShimCodeCjs,
+	createDgramShimCodeEsm,
+	createFsShimCodeCjs,
+	createFsShimCodeEsm,
 } from "./internals/index.js";
 import { noisyName, policyToPermissions } from "./misc.js";
 import { generateBoxCjs } from "./cjs/index.js";
@@ -58,6 +67,31 @@ function generateHelpers(root, nameGenerator) {
 	fs.writeFileSync(vmCjs, createVmShimCodeCjs({ names: nameGenerator }));
 	fs.writeFileSync(vmMjs, createVmShimCodeEsm({ names: nameGenerator }));
 
+	const httpCjs = path.resolve(dir, "http.cjs");
+	const httpMjs = path.resolve(dir, "http.mjs");
+	fs.writeFileSync(httpCjs, createHttpShimCodeCjs({ moduleName: "http" }));
+	fs.writeFileSync(httpMjs, createHttpShimCodeEsm({ moduleName: "http" }));
+
+	const httpsCjs = path.resolve(dir, "https.cjs");
+	const httpsMjs = path.resolve(dir, "https.mjs");
+	fs.writeFileSync(httpsCjs, createHttpShimCodeCjs({ moduleName: "https" }));
+	fs.writeFileSync(httpsMjs, createHttpShimCodeEsm({ moduleName: "https" }));
+
+	const dnsCjs = path.resolve(dir, "dns.cjs");
+	const dnsMjs = path.resolve(dir, "dns.mjs");
+	fs.writeFileSync(dnsCjs, createDnsShimCodeCjs());
+	fs.writeFileSync(dnsMjs, createDnsShimCodeEsm());
+
+	const dgramCjs = path.resolve(dir, "dgram.cjs");
+	const dgramMjs = path.resolve(dir, "dgram.mjs");
+	fs.writeFileSync(dgramCjs, createDgramShimCodeCjs());
+	fs.writeFileSync(dgramMjs, createDgramShimCodeEsm());
+
+	const fsCjs = path.resolve(dir, "fs.cjs");
+	const fsMjs = path.resolve(dir, "fs.mjs");
+	fs.writeFileSync(fsCjs, createFsShimCodeCjs());
+	fs.writeFileSync(fsMjs, createFsShimCodeEsm());
+
 	// NOTE: cannot generate both CJS and MJS because they would be evaluated
 	// both, leading to the latter erroring because all the globals have already
 	// been removed.
@@ -95,6 +129,7 @@ function tmp(dirs, strategy, nameGenerator) {
 				ogFileAbs: ogFilePath,
 				ogDirAbs: ogDirPath,
 				hiddenRel: path.relative(outDirPath, dirs.hidden),
+				hiddenUrl: pathToFileURL(dirs.hidden).href,
 				outDirAbs: ogDirPath.replace(dirs.root, dirs.out),
 				inRoot: dirs.root,
 				outRoot: dirs.out,

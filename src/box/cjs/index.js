@@ -78,7 +78,7 @@ export function generateBoxCjs({
 	strategy,
 	file,
 }) {
-	const preamble = makePreamble({ name });
+	const preamble = makePreamble({ name, permissions, strategy, file });
 
 	const accessProps = {
 		cjs: true,
@@ -266,19 +266,22 @@ function doEmbed(src, preamble, name) {
 	);
 }
 
-function makePreamble({ name }) {
-	return `
-	  var globalThis = ${name.for(kGlobalThis)},
-	      global = ${name.for(kGlobal)},
-	      crypto = ${name.for(kCryptoVar)},
-	      Crypto = ${name.for(kCryptoClass)},
-	      CryptoKey = ${name.for(kCryptoKey)},
-	      SubtleCrypto = ${name.for(kSubtleCrypto)},
-	      fetch = ${name.for(kFetch)},
-	      process = ${name.for(kProcess)};
-	  globalThis.eval = eval;
-	  globalThis.Function = Function;
-	`
-		.replace(/\s+/g, " ")
-		.trim();
+function makePreamble({ name, permissions, strategy, file }) {
+		const embeddedContext = JSON.stringify({ id: file, strategy, permissions });
+
+		return `
+			var globalThis = ${name.for(kGlobalThis)},
+					global = ${name.for(kGlobal)},
+					crypto = ${name.for(kCryptoVar)},
+					Crypto = ${name.for(kCryptoClass)},
+					CryptoKey = ${name.for(kCryptoKey)},
+					SubtleCrypto = ${name.for(kSubtleCrypto)},
+					fetch = ${name.for(kFetch)},
+					process = ${name.for(kProcess)};
+			globalThis.eval = eval;
+			globalThis.Function = Function;
+			try { globalThis.__nodeShieldContext = ${embeddedContext}; } catch (e) {}
+		`
+				.replace(/\s+/g, " ")
+				.trim();
 }

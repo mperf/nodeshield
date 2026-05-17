@@ -222,7 +222,29 @@ function getCapabilitiesForFile(content) {
 	{
 		const expr = /[^a-z]fetch[^a-z]/gi;
 		if (expr.test(content)) {
-			fileCapabilities.add(capabilities.Names.NETWORK);
+			// Attempt to detect protocol from literal URLs in the source
+			const httpsExpr = /https:\/\//gi;
+			const httpExpr = /(?<!https:)\/\/http:\/\//gi;
+			const ipExpr = /(?:\b(?:\d{1,3}\.){3}\d{1,3}\b|\[(?:[0-9a-fA-F]{0,4}:)*[0-9a-fA-F]{0,4}\])/;
+
+			if (httpsExpr.test(content)) {
+				fileCapabilities.add(capabilities.Names.NETWORK_HTTPS);
+			} else if (httpExpr.test(content)) {
+				fileCapabilities.add(capabilities.Names.NETWORK_HTTP);
+			}
+
+			if (ipExpr.test(content)) {
+				fileCapabilities.add(capabilities.Names.NETWORK_IP);
+			}
+
+			// Fallback: if fetch is detected but no specific protocol, assume HTTPS as safe default
+			if (
+				!fileCapabilities.has(capabilities.Names.NETWORK_HTTPS) &&
+				!fileCapabilities.has(capabilities.Names.NETWORK_HTTP) &&
+				!fileCapabilities.has(capabilities.Names.NETWORK_IP)
+			) {
+				fileCapabilities.add(capabilities.Names.NETWORK_HTTPS);
+			}
 		}
 	}
 
