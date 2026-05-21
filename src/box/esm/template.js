@@ -91,6 +91,18 @@ const ___nameImport___ = (function () {
 			);
 		}
 
+		// Special-case 'fs' and 'fs/promises' imports to use the internal shim.
+		if (specifier === "fs" || specifier === "node:fs") {
+			console.log(`trying to use shim for fs: ${specifier}`);
+			return import("___valueInternalModulesPathUrl___/fs.mjs").catch(() => {console.log(`failed to use shim for fs: ${specifier}`); return import("node:fs");});
+		}
+		if (specifier === "fs/promises" || specifier === "node:fs/promises") {
+			console.log(`trying to use shim for fs/promises: ${specifier}`);
+			return import("___valueInternalModulesPathUrl___/fs.mjs")
+				.then((mod) => mod.promises)
+				.catch(() => {console.log(`failed to use shim for fs/promises: ${specifier}`); return import("node:fs/promises");});
+		}
+
 		// Special-case 'http' and 'https' imports to use the internal shim
 		// implementation.
 		if (specifier === "http" || specifier === "node:http") {

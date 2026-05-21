@@ -56,9 +56,20 @@ export function policyToPermissions(file, policy, out) {
 			worker: false,
 		},
 		process: false,
-		import: {
-			packages: [],
-		},
+		import: Object.assign(Object.create(null), {
+			packages: [...policy.node, ...policy.packages],
+			files: Array.from(
+				new Set([
+					...policy.files
+						.map((to) => path.join(out, to))
+						.flatMap((file) => [
+							file,
+							file.replace(new RegExp(`${path.extname(file)}$`), ""), // file w/o extension
+							path.dirname(file), // directories (which imports index.js)
+						]),
+				]),
+			),
+		}),
 	})
 
 	if (policy.capabilities.includes(capabilities.Names.EXECUTE_COMMAND)) {

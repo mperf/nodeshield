@@ -20,6 +20,8 @@ import {
 	createDgramShimCodeEsm,
 	createFsShimCodeCjs,
 	createFsShimCodeEsm,
+	createCryptoShimCodeCjs,
+	createCryptoShimCodeEsm,
 	createChildProcessShimCodeCjs,
 	createChildProcessShimCodeEsm,
 } from "./internals/index.js";
