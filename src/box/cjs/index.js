@@ -267,7 +267,7 @@ function doEmbed(src, preamble, name) {
 }
 
 function makePreamble({ name, permissions, strategy, file }) {
-		const embeddedContext = JSON.stringify({ id: file, strategy, permissions });
+		const embeddedContext = JSON.stringify({ id: file, strategy: strategy.description || String(strategy), permissions });
 
 		return `
 			var globalThis = ${name.for(kGlobalThis)},
