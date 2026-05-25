@@ -91,17 +91,18 @@ const ___nameImport___ = (function () {
 			);
 		}
 
-		// Special-case 'fs' and 'fs/promises' imports to use the internal shim.
-		if (specifier === "fs" || specifier === "node:fs") {
-			console.log(`trying to use shim for fs: ${specifier}`);
-			return import("___valueInternalModulesPathUrl___/fs.mjs").catch(() => {console.log(`failed to use shim for fs: ${specifier}`); return import("node:fs");});
-		}
-		if (specifier === "fs/promises" || specifier === "node:fs/promises") {
-			console.log(`trying to use shim for fs/promises: ${specifier}`);
-			return import("___valueInternalModulesPathUrl___/fs.mjs")
-				.then((mod) => mod.promises)
-				.catch(() => {console.log(`failed to use shim for fs/promises: ${specifier}`); return import("node:fs/promises");});
-		}
+		// Special-case 'fs' and 'fs/promises' imports to use the internal shim factory.
+        if (specifier === "fs" || specifier === "node:fs") {
+            return import("___valueInternalModulesPathUrl___/fs.mjs")
+                .then((mod) => mod.createFsShim(___valueContextJSON___))
+                .catch(() => import("node:fs"));
+        }
+        
+        if (specifier === "fs/promises" || specifier === "node:fs/promises") {
+            return import("___valueInternalModulesPathUrl___/fs.mjs")
+                .then((mod) => mod.createFsShim(___valueContextJSON___).promises)
+                .catch(() => import("node:fs/promises"));
+        }
 
 		// Special-case 'http' and 'https' imports to use the internal shim
 		// implementation.

@@ -135,26 +135,28 @@ const [___nameImport___, ___nameGuestRequire___] = (function () {
 			);
 		}
 
-		// Special-case 'fs' to return the internal fs shim while preserving the
-		// module shape and `fs.promises` support.
-		if (specifier === "fs" || specifier === "node:fs") {
-			console.log("[D] intercepting require for 'fs' to return internal shim");
-			try {
-				return ___nameHostRequire___("___valueInternalModulesPathRelative___/fs.cjs");
-			} catch {
-				console.log("[D] failed to load internal fs module, falling back to host fs");
-				return ___nameHostRequire___("node:fs");
-			}
-		}
-		if (specifier === "fs/promises" || specifier === "node:fs/promises") {
-			console.log("[D] intercepting require for 'fs/promises' to return internal shim");
-			try {
-				return ___nameHostRequire___("___valueInternalModulesPathRelative___/fs.cjs").promises;
-			} catch {
-				console.log("[D] failed to load internal fs module for promises, falling back to host fs/promises");
-				return ___nameHostRequire___("node:fs").promises;
-			}
-		}
+		// Special-case 'fs' to return the internal fs shim factory.
+        if (specifier === "fs" || specifier === "node:fs") {
+            console.log("[D] intercepting require for 'fs' to return internal shim");
+            try {
+                const factory = ___nameHostRequire___("___valueInternalModulesPathRelative___/fs.cjs");
+                return factory.createFsShim(___valueContextJSON___);
+            } catch {
+                console.log("[D] failed to load internal fs module, falling back to host fs");
+                return ___nameHostRequire___("node:fs");
+            }
+        }
+        
+        if (specifier === "fs/promises" || specifier === "node:fs/promises") {
+            console.log("[D] intercepting require for 'fs/promises' to return internal shim");
+            try {
+                const factory = ___nameHostRequire___("___valueInternalModulesPathRelative___/fs.cjs");
+                return factory.createFsShim(___valueContextJSON___).promises;
+            } catch {
+                console.log("[D] failed to load internal fs module for promises, falling back to host fs/promises");
+                return ___nameHostRequire___("node:fs").promises;
+            }
+        }
 
 		// Special-case 'http' and 'https' to return internal shims that enforce
 		// per-call network checks while preserving the module shape.

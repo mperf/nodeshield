@@ -231,8 +231,7 @@ export function generateBoxCjs({
 			["___valueInternalModulesPathRelative___", paths.hiddenRel],
 		],
 
-		/// Miscellaneous
-		["___flagValue___", name.for("flag")],
+		["___valueContextJSON___", JSON.stringify({ id: file, strategy: strategy.description || String(strategy), permissions })],
 
 		/// Finally, substitute the source code into the template.
 		/// NOTE: This must happen last to avoid any of the other substitutions
