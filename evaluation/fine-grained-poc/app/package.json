@@ -1,0 +1,8 @@
+{
+  "name": "victim-app",
+  "type": "module",
+  "version": "0.0.1",
+  "dependencies": {
+    "poc-pkg": "file:../pkgs/poc-pkg-1.0.0.tgz"
+  }
+}

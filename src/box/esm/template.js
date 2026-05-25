@@ -104,14 +104,19 @@ const ___nameImport___ = (function () {
                 .catch(() => import("node:fs/promises"));
         }
 
-		// Special-case 'http' and 'https' imports to use the internal shim
-		// implementation.
-		if (specifier === "http" || specifier === "node:http") {
-			return import("___valueInternalModulesPathUrl___/http.mjs").catch(() => import("node:http"));
-		}
-		if (specifier === "https" || specifier === "node:https") {
-			return import("___valueInternalModulesPathUrl___/https.mjs").catch(() => import("node:https"));
-		}
+		/// Internal shims are currently disabled for network modules because they create a confused deputy problem,
+		/// where nodeshield doesn't know which package is using the internal shim at a given time.
+		/// This can be solved similar to 'fs' by creating a separate shim package for each package 
+		/// that needs it, but for the moment we consider that would add too much overhead with little benefit.
+
+		// // Special-case 'http' and 'https' imports to use the internal shim
+		// // implementation.
+		// if (specifier === "http" || specifier === "node:http") {
+		// 	return import("___valueInternalModulesPathUrl___/http.mjs").catch(() => import("node:http"));
+		// }
+		// if (specifier === "https" || specifier === "node:https") {
+		// 	return import("___valueInternalModulesPathUrl___/https.mjs").catch(() => import("node:https"));
+		// }
 
 		/// If it is allowed to import specifier, import it and return the result.
 		// ___namePrimordials___.ConsoleLog(`[A] importing '${specifier}' allowed in '___who___'`);

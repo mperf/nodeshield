@@ -158,22 +158,27 @@ const [___nameImport___, ___nameGuestRequire___] = (function () {
             }
         }
 
-		// Special-case 'http' and 'https' to return internal shims that enforce
-		// per-call network checks while preserving the module shape.
-		if (specifier === "http" || specifier === "node:http") {
-			try {
-				return ___nameHostRequire___("___valueInternalModulesPathRelative___/http.cjs");
-			} catch {
-				return ___nameHostRequire___("node:http");
-			}
-		}
-		if (specifier === "https" || specifier === "node:https") {
-			try {
-				return ___nameHostRequire___("___valueInternalModulesPathRelative___/https.cjs");
-			} catch {
-				return ___nameHostRequire___("node:https");
-			}
-		}
+		/// Internal shims are currently disabled for network modules because they create a confused deputy problem,
+		/// where nodeshield doesn't know which package is using the internal shim at a given time.
+		/// This can be solved similar to 'fs' by creating a separate shim package for each package 
+		/// that needs it, but for the moment we consider that would add too much overhead with little benefit.
+
+		// // Special-case 'http' and 'https' to return internal shims that enforce
+		// // per-call network checks while preserving the module shape.
+		// if (specifier === "http" || specifier === "node:http") {
+		// 	try {
+		// 		return ___nameHostRequire___("___valueInternalModulesPathRelative___/http.cjs");
+		// 	} catch {
+		// 		return ___nameHostRequire___("node:http");
+		// 	}
+		// }
+		// if (specifier === "https" || specifier === "node:https") {
+		// 	try {
+		// 		return ___nameHostRequire___("___valueInternalModulesPathRelative___/https.cjs");
+		// 	} catch {
+		// 		return ___nameHostRequire___("node:https");
+		// 	}
+		// }
 
 		/// If it is allowed to require specifier, require it and return the result.
 		// ___namePrimordials___.ConsoleLog(`[A] importing '${specifier}' allowed in '___who___'`);
