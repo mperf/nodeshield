@@ -14,6 +14,13 @@ fi
 # ---------------------------------------------------------------------------- #
 
 cd "$testcase"
+
+# Back up the existing coarse CBOM if it exists
+if [ -f 'cbom.json' ]; then
+    mv 'cbom.json' 'cbom.coarse.json'
+    echo "Backed up existing cbom.json to cbom.coarse.json"
+fi
+
 npm clean-install --ignore-scripts
 node ../.cli/src/cli.js \
 	--strategy 'exit' \

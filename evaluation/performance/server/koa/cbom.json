@@ -1,20 +1,26 @@
 {
   "server@0.0.0": [
     "system",
-    "file-system",
-    "network",
+    "fs-read",
+    "fs-write",
+    "network-https",
     "code",
+    "network-ip",
+    "command",
     "crypto",
-    "command"
+    "network-udp",
+    "network-dns",
+    "fs-meta"
   ],
   "koa@2.16.0": [
-    "network",
-    "system"
+    "network-http",
+    "system",
+    "network-ip"
   ],
   "accepts@1.3.8": [],
   "mime-types@2.1.35": [],
   "mime-db@1.52.0": [
-    "network"
+    "network-http"
   ],
   "negotiator@0.6.3": [],
   "cache-content-type@1.0.1": [],
@@ -23,7 +29,7 @@
   "safe-buffer@5.2.1": [],
   "content-type@1.0.5": [],
   "cookies@0.9.1": [
-    "network"
+    "network-http"
   ],
   "depd@2.0.0": [
     "system"
@@ -56,7 +62,7 @@
   "inherits@2.0.4": [],
   "setprototypeof@1.2.0": [],
   "statuses@1.5.0": [
-    "network"
+    "network-http"
   ],
   "toidentifier@1.0.1": [],
   "is-generator-function@1.1.0": [],

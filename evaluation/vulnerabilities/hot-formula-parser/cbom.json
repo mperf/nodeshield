@@ -14,8 +14,9 @@
   ],
   "bessel@1.0.2": [],
   "jstat@1.9.6": [
-    "file-system",
     "system",
+    "fs-read",
+    "fs-write",
     "code"
   ],
   "tiny-emitter@2.1.0": [

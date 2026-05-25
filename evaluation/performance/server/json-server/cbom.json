@@ -1,12 +1,19 @@
 {
   "server@0.0.0": [
     "system",
-    "file-system",
-    "network",
+    "fs-read",
+    "fs-write",
+    "network-https",
     "code",
-    "crypto",
+    "network-ip",
     "command",
-    "addon"
+    "crypto",
+    "network-udp",
+    "network-dns",
+    "fs-meta",
+    "addon",
+    "network-http",
+    "file-system"
   ],
   "body-parser@1.20.3": [],
   "bytes@3.1.2": [],
@@ -15,7 +22,7 @@
     "addon",
     "system",
     "file-system",
-    "network"
+    "network-ip"
   ],
   "ms@2.0.0": [],
   "depd@2.0.0": [
@@ -28,7 +35,7 @@
   "inherits@2.0.4": [],
   "setprototypeof@1.2.0": [],
   "statuses@2.0.1": [
-    "network"
+    "network-http"
   ],
   "toidentifier@1.0.1": [],
   "iconv-lite@0.4.24": [
@@ -77,7 +84,7 @@
   "media-typer@0.3.0": [],
   "mime-types@2.1.35": [],
   "mime-db@1.52.0": [
-    "network"
+    "network-http"
   ],
   "chalk@4.1.2": [],
   "ansi-styles@4.3.0": [],
@@ -92,7 +99,7 @@
   "compression@1.8.0": [],
   "compressible@2.0.18": [],
   "mime-db@1.53.0": [
-    "network"
+    "network-http"
   ],
   "negotiator@0.6.4": [],
   "on-headers@1.0.2": [],
@@ -102,16 +109,18 @@
   "cors@2.8.5": [],
   "object-assign@4.1.1": [],
   "errorhandler@1.5.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "accepts@1.3.8": [],
   "negotiator@0.6.3": [],
   "escape-html@1.0.3": [],
   "express@4.21.2": [
-    "network",
+    "network-http",
+    "network-https",
     "system",
-    "file-system"
+    "network-ip",
+    "fs-read"
   ],
   "array-flatten@1.1.1": [],
   "content-disposition@0.5.4": [],
@@ -122,7 +131,7 @@
   "encodeurl@2.0.0": [],
   "etag@1.8.1": [
     "crypto",
-    "file-system"
+    "fs-read"
   ],
   "finalhandler@1.3.1": [
     "system"
@@ -131,7 +140,7 @@
   "fresh@0.5.2": [],
   "merge-descriptors@1.0.3": [],
   "methods@1.1.2": [
-    "network"
+    "network-http"
   ],
   "path-to-regexp@0.1.12": [],
   "proxy-addr@2.0.7": [],
@@ -141,12 +150,13 @@
   "forwarded@0.2.0": [],
   "range-parser@1.2.1": [],
   "send@0.19.0": [
-    "file-system"
+    "fs-read"
   ],
   "encodeurl@1.0.2": [],
   "mime@1.6.0": [
     "system",
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "ms@2.1.3": [],
   "serve-static@1.16.2": [],
@@ -156,7 +166,7 @@
   "isarray@0.0.1": [],
   "json-parse-helpfulerror@1.0.3": [],
   "jju@1.4.0": [
-    "file-system"
+    "fs-read"
   ],
   "lodash@4.17.21": [
     "system",
@@ -167,8 +177,9 @@
     "system"
   ],
   "graceful-fs@4.2.11": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "is-promise@2.2.2": [],
   "pify@3.0.0": [],
@@ -196,11 +207,11 @@
   "semver-compare@1.0.0": [],
   "pluralize@8.0.0": [],
   "server-destroy@1.0.1": [
-    "network"
+    "network-ip"
   ],
   "yargs@17.7.2": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "cliui@8.0.1": [
     "system"
@@ -212,17 +223,19 @@
   "ansi-regex@5.0.1": [],
   "wrap-ansi@7.0.0": [],
   "escalade@3.2.0": [
-    "file-system"
+    "fs-read"
   ],
   "get-caller-file@2.0.5": [],
   "require-directory@2.1.1": [
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "y18n@5.0.8": [
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "yargs-parser@21.1.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ]
 }

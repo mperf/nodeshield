@@ -7,27 +7,36 @@
     "system"
   ],
   "marked@0.2.10": [
-    "file-system",
     "command",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "fs-extra@0.6.4": [
+    "fs-read",
+    "fs-write",
     "file-system"
   ],
   "ncp@0.4.2": [
     "system",
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "mkdirp@0.3.5": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta",
+    "file-system"
   ],
   "jsonfile@1.0.1": [
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "rimraf@2.2.8": [
     "system",
-    "file-system"
+    "fs-read",
+    "fs-meta"
   ],
   "underscore@1.13.7": [
     "system"
@@ -35,6 +44,6 @@
   "highlight.js@8.9.1": [
     "system",
     "code",
-    "network"
+    "network-https"
   ]
 }

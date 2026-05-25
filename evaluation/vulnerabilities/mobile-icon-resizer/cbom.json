@@ -1,5 +1,6 @@
 {
   "demo@1.0.0": [
+    "fs-write",
     "file-system",
     "system"
   ],
@@ -12,22 +13,26 @@
     "system"
   ],
   "optimist@0.6.1": [
-    "file-system",
+    "fs-read",
     "system",
     "command"
   ],
   "wordwrap@0.0.3": [
-    "file-system"
+    "fs-read"
   ],
   "minimist@0.0.10": [
     "system"
   ],
   "mkdirp@0.3.5": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta",
+    "file-system"
   ],
   "image-size@0.2.5": [
     "file-system",
-    "system"
+    "system",
+    "fs-read"
   ]
 }

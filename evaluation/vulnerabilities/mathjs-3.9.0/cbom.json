@@ -5,9 +5,9 @@
     "code"
   ],
   "mathjs@3.9.0": [
-    "file-system",
     "system",
     "code",
+    "fs-read",
     "addon"
   ],
   "decimal.js@5.0.8": [

@@ -5,7 +5,7 @@
   ],
   "jsen@0.6.6": [
     "system",
-    "file-system",
+    "fs-read",
     "code"
   ]
 }

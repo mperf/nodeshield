@@ -1,22 +1,30 @@
 {
   "server@0.0.0": [
     "system",
-    "file-system",
-    "network",
+    "fs-read",
+    "fs-write",
+    "network-https",
     "code",
+    "network-ip",
+    "command",
     "crypto",
-    "command"
+    "network-udp",
+    "network-dns",
+    "fs-meta",
+    "network-http"
   ],
   "st@3.0.1": [
-    "network",
+    "network-http",
     "system",
-    "file-system",
+    "fs-read",
     "command",
-    "crypto"
+    "network-dns",
+    "crypto",
+    "fs-write"
   ],
   "async-cache@1.1.0": [
     "system",
-    "network"
+    "network-http"
   ],
   "lru-cache@4.1.5": [
     "system"
@@ -28,7 +36,8 @@
   "bl@5.1.0": [
     "system",
     "crypto",
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "buffer@6.0.3": [],
   "base64-js@1.5.1": [],
@@ -41,7 +50,8 @@
   "safe-buffer@5.2.1": [],
   "util-deprecate@1.0.2": [],
   "fd@0.0.3": [
-    "network",
+    "network-http",
+    "fs-read",
     "file-system",
     "system"
   ],
@@ -50,7 +60,8 @@
   ],
   "negotiator@0.6.4": [],
   "graceful-fs@4.2.11": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ]
 }

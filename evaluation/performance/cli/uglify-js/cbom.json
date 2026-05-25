@@ -1,26 +1,31 @@
 {
   "uglify-js@3.4.7": [
-    "file-system",
     "addon",
     "system",
     "code",
+    "fs-read",
+    "fs-write",
     "crypto",
     "command",
-    "network"
+    "network-https",
+    "network-ip",
+    "network-http"
   ],
   "commander@2.16.0": [
     "command",
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-meta"
   ],
   "source-map@0.6.1": [
     "addon"
   ],
   "acorn@5.7.4": [
-    "network",
+    "network-https",
+    "network-ip",
     "system",
     "code",
-    "file-system"
+    "fs-read"
   ],
   "semver@5.5.1": [
     "system"

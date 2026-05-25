@@ -1,15 +1,16 @@
 {
   "dox@0.9.0": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "commander@2.9.0": [
     "command",
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-meta"
   ],
   "graceful-readlink@1.0.1": [
-    "file-system"
+    "fs-read"
   ],
   "jsdoctypeparser@1.2.0": [
     "system"
@@ -18,32 +19,36 @@
     "system"
   ],
   "markdown-it@7.0.1": [
-    "file-system",
     "system",
-    "network"
+    "fs-read",
+    "network-https",
+    "network-ip"
   ],
   "argparse@1.0.10": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "sprintf-js@1.0.3": [],
   "entities@1.1.2": [],
   "linkify-it@2.2.0": [
-    "network"
+    "network-http",
+    "network-ip"
   ],
   "uc.micro@1.0.6": [],
   "mdurl@1.0.1": [],
   "mocha@3.0.2": [
     "system",
-    "file-system",
-    "command"
+    "fs-read",
+    "fs-write",
+    "command",
+    "file-system"
   ],
   "browser-stdout@1.3.0": [
     "system"
   ],
   "debug@2.2.0": [
     "file-system",
-    "network",
+    "network-ip",
     "system"
   ],
   "ms@0.7.1": [],
@@ -51,11 +56,12 @@
   "escape-string-regexp@1.0.5": [],
   "glob@7.0.5": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "fs.realpath@1.0.0": [
     "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "inflight@1.0.6": [
     "system"
@@ -86,8 +92,11 @@
   "lodash._basecreate@3.0.3": [],
   "lodash._isiterateecall@3.0.9": [],
   "mkdirp@0.5.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta",
+    "file-system"
   ],
   "minimist@0.0.8": [
     "system"

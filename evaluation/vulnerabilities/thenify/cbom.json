@@ -1,7 +1,7 @@
 {
   "demo@1.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-write"
   ],
   "thenify@3.3.0": [
     "code",

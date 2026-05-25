@@ -1,7 +1,7 @@
 {
   "demo@1.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-write"
   ],
   "mixin-pro@0.6.0": [
     "code",

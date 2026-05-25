@@ -1,7 +1,7 @@
 {
   "demo@1.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-write"
   ],
   "node-rules@3.0.0": [
     "system",

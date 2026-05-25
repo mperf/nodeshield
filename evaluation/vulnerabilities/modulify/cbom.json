@@ -1,45 +1,51 @@
 {
   "demo@1.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-write"
   ],
   "modulify@0.1.0": [
     "code",
-    "file-system",
+    "fs-read",
     "system"
   ],
   "esprima@4.0.1": [
-    "file-system",
     "system",
+    "fs-read",
     "code"
   ],
   "jasmine-node@3.0.0": [
     "system",
-    "file-system",
     "command",
+    "fs-read",
+    "file-system",
     "code"
   ],
   "coffeescript@1.12.7": [
     "file-system",
     "system",
     "code",
-    "command"
+    "fs-read",
+    "command",
+    "fs-write"
   ],
   "gaze@1.1.3": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "globule@1.3.4": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "glob@7.1.7": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "fs.realpath@1.0.0": [
     "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "inflight@1.0.6": [
     "system"
@@ -67,22 +73,30 @@
   "jasmine-reporters@1.0.2": [
     "system",
     "code",
-    "file-system"
+    "fs-write",
+    "fs-read"
   ],
   "mkdirp@0.3.5": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta",
+    "file-system"
   ],
   "requirejs@2.3.7": [
-    "file-system",
     "code",
-    "network",
-    "system"
+    "network-https",
+    "network-ip",
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "underscore@1.9.2": [],
   "walkdir@0.0.12": [
     "command",
     "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ]
 }

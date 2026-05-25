@@ -1,20 +1,23 @@
 {
   "dot-object@1.7.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "commander@2.20.3": [
     "command",
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-meta"
   ],
   "glob@7.2.3": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "fs.realpath@1.0.0": [
     "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "inflight@1.0.6": [
     "system"
@@ -32,7 +35,7 @@
   "gulp@3.9.1": [
     "system",
     "code",
-    "file-system"
+    "fs-read"
   ],
   "chalk@1.1.3": [
     "system"
@@ -46,8 +49,8 @@
   ],
   "semver@4.3.6": [
     "system",
-    "file-system",
-    "code"
+    "code",
+    "fs-read"
   ],
   "archy@1.0.0": [],
   "has-ansi@2.0.0": [],
@@ -129,22 +132,24 @@
   ],
   "clone@1.0.4": [],
   "clone-stats@0.0.1": [
-    "file-system"
+    "file-system",
+    "fs-read"
   ],
   "interpret@1.4.0": [],
   "liftoff@2.5.0": [
     "system",
+    "fs-read",
     "file-system"
   ],
   "extend@3.0.2": [
     "code"
   ],
   "findup-sync@2.0.0": [
-    "file-system"
+    "fs-read"
   ],
   "is-glob@3.1.0": [],
   "detect-file@1.0.0": [
-    "file-system"
+    "fs-read"
   ],
   "is-extglob@2.1.1": [],
   "micromatch@3.1.10": [
@@ -167,14 +172,14 @@
   "isobject@3.0.1": [],
   "repeat-element@1.1.4": [],
   "snapdragon@0.8.2": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "debug@2.6.9": [
     "addon",
     "system",
     "file-system",
-    "network"
+    "network-ip"
   ],
   "ms@2.0.0": [],
   "define-property@0.2.5": [],
@@ -259,13 +264,13 @@
   ],
   "homedir-polyfill@1.0.3": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "parse-passwd@1.0.0": [],
   "global-modules@1.0.0": [],
   "global-prefix@1.0.2": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "which@1.3.1": [
     "system"
@@ -275,10 +280,13 @@
   ],
   "isexe@2.0.0": [
     "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta"
   ],
   "fined@1.2.0": [
-    "file-system"
+    "fs-read"
   ],
   "object.defaults@1.1.0": [],
   "array-each@1.0.1": [],
@@ -300,6 +308,7 @@
   "rechoir@0.6.2": [],
   "resolve@1.22.10": [
     "system",
+    "fs-read",
     "file-system"
   ],
   "is-core-module@2.16.1": [
@@ -315,9 +324,10 @@
     "system"
   ],
   "end-of-stream@0.1.5": [
-    "file-system",
-    "network",
-    "system"
+    "network-ip",
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "once@1.3.3": [],
   "sequencify@0.0.7": [],
@@ -331,24 +341,26 @@
   ],
   "v8flags@2.1.1": [
     "system",
-    "file-system",
     "crypto",
     "command",
-    "network"
+    "network-http",
+    "network-ip",
+    "fs-read"
   ],
   "user-home@1.1.1": [
     "system"
   ],
   "vinyl-fs@0.3.14": [
     "system",
-    "file-system"
+    "fs-read",
+    "fs-meta"
   ],
   "graceful-fs@3.0.12": [
     "system"
   ],
   "strip-bom@1.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "through2@0.6.5": [
     "system"
@@ -368,7 +380,7 @@
   ],
   "glob@4.5.3": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "minimatch@2.0.10": [],
   "ordered-read-streams@0.1.0": [],
@@ -378,24 +390,26 @@
     "system"
   ],
   "glob-watcher@0.0.6": [
-    "file-system"
+    "fs-write"
   ],
   "gaze@0.5.2": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "globule@0.1.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "lodash@1.0.2": [
     "system"
   ],
   "glob@3.1.21": [
     "system",
-    "file-system",
     "command",
-    "code"
+    "code",
+    "fs-write"
   ],
   "minimatch@0.2.14": [
     "system"
@@ -404,47 +418,55 @@
     "system"
   ],
   "graceful-fs@1.2.3": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta",
+    "file-system"
   ],
   "inherits@1.0.2": [],
   "sigmund@1.0.1": [
-    "network"
+    "network-http"
   ],
   "natives@1.1.6": [
     "code",
     "system"
   ],
   "mkdirp@0.5.6": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "first-chunk-stream@1.0.0": [],
   "is-utf8@0.2.1": [],
   "gulp-beautify@2.0.1": [],
   "js-beautify@1.15.2": [
-    "network",
+    "network-https",
+    "network-ip",
     "system",
-    "file-system",
+    "fs-read",
+    "fs-write",
+    "network-http",
     "code"
   ],
   "glob@11.0.1": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "minimatch@10.0.1": [
     "system"
   ],
   "brace-expansion@2.0.1": [],
   "config-chain@1.1.13": [
-    "file-system",
-    "network",
-    "system"
+    "network-http",
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "proto-list@1.2.4": [],
   "editorconfig@1.0.4": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "commander@10.0.1": [
     "command",
@@ -455,7 +477,7 @@
     "system"
   ],
   "@one-ini/wasm@0.1.1": [
-    "file-system"
+    "fs-read"
   ],
   "semver@7.7.1": [
     "system"
@@ -507,14 +529,14 @@
     "system"
   ],
   "package-json-from-dist@1.0.1": [
-    "file-system"
+    "fs-read"
   ],
   "path-scurry@2.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "lru-cache@11.0.2": [
-    "network",
+    "network-ip",
     "system"
   ],
   "js-cookie@3.0.5": [],
@@ -524,8 +546,8 @@
   "abbrev@3.0.0": [],
   "rcloader@0.2.2": [
     "system",
-    "network",
-    "file-system"
+    "network-https",
+    "fs-read"
   ],
   "lodash.assign@4.2.0": [],
   "lodash.isobject@3.0.2": [],
@@ -533,14 +555,15 @@
     "system"
   ],
   "rcfinder@0.1.9": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "lodash.clonedeep@4.5.0": [
     "system"
   ],
   "gulp-headerfooter@1.0.3": [
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "through2@0.4.2": [],
   "xtend@2.1.2": [],
@@ -581,28 +604,33 @@
   ],
   "strip-eof@1.0.0": [],
   "mocha@3.5.3": [
-    "file-system",
     "system",
+    "fs-read",
+    "fs-write",
     "command"
   ],
   "commander@2.9.0": [
     "command",
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-meta"
   ],
   "debug@2.6.8": [
     "addon",
     "system",
     "file-system",
-    "network"
+    "network-ip"
   ],
   "glob@7.1.1": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "mkdirp@0.5.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write",
+    "fs-meta",
+    "file-system"
   ],
   "minimist@0.0.8": [
     "system"
@@ -617,7 +645,7 @@
     "system"
   ],
   "graceful-readlink@1.0.1": [
-    "file-system"
+    "fs-read"
   ],
   "diff@3.2.0": [],
   "growl@1.9.2": [
@@ -635,8 +663,8 @@
   "lodash._basecreate@3.0.3": [],
   "gulp-rename@1.4.0": [],
   "gulp-standard@10.1.2": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "app-root-path@2.2.1": [
     "system"
@@ -653,7 +681,8 @@
   "process@0.11.10": [
     "system",
     "code",
-    "file-system"
+    "fs-read",
+    "fs-write"
   ],
   "util@0.10.4": [
     "system"
@@ -665,43 +694,49 @@
     "system"
   ],
   "eslint@3.19.0": [
-    "file-system",
     "system",
+    "fs-read",
     "code",
-    "network"
+    "fs-write",
+    "network-ip",
+    "file-system",
+    "network-https"
   ],
   "doctrine@2.1.0": [],
   "espree@3.5.4": [
     "system"
   ],
   "acorn@5.7.4": [
-    "network",
+    "network-https",
+    "network-ip",
     "system",
     "code",
-    "file-system"
+    "fs-read"
   ],
   "acorn-jsx@3.0.1": [],
   "acorn@3.3.0": [
-    "file-system",
     "system",
-    "network",
+    "fs-read",
+    "network-https",
+    "network-ip",
     "code"
   ],
   "file-entry-cache@2.0.0": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "flat-cache@1.3.4": [],
   "rimraf@2.6.3": [
     "system",
-    "file-system"
+    "fs-read",
+    "fs-meta"
   ],
   "write@0.2.1": [
-    "file-system"
+    "fs-write"
   ],
   "object-assign@4.1.1": [],
   "globals@9.18.0": [
-    "network",
+    "network-https",
     "system",
     "code"
   ],
@@ -710,7 +745,7 @@
   ],
   "inquirer@0.12.0": [
     "system",
-    "network"
+    "network-https"
   ],
   "ansi-escapes@1.4.0": [
     "system"
@@ -751,8 +786,10 @@
   "ajv@4.11.8": [
     "system",
     "code",
-    "network",
-    "file-system"
+    "network-https",
+    "network-ip",
+    "fs-write",
+    "fs-read"
   ],
   "slice-ansi@0.0.4": [],
   "user-home@2.0.0": [],
@@ -761,7 +798,7 @@
     "code"
   ],
   "eslint-plugin-import@2.2.0": [
-    "file-system",
+    "fs-read",
     "system",
     "crypto"
   ],
@@ -769,7 +806,7 @@
   "eslint-import-resolver-node@0.2.3": [],
   "eslint-plugin-node@4.2.3": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "semver@5.3.0": [
     "system"
@@ -790,11 +827,11 @@
   "buffer-from@1.1.2": [],
   "typedarray@0.0.6": [
     "code",
-    "file-system"
+    "fs-read"
   ],
   "escope@3.6.0": [
-    "file-system",
     "system",
+    "fs-read",
     "code"
   ],
   "es6-map@0.1.5": [],
@@ -825,8 +862,9 @@
   "esquery@1.6.0": [],
   "circular-json@0.3.3": [],
   "graceful-fs@4.2.11": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read",
+    "fs-write"
   ],
   "imurmurhash@0.1.4": [],
   "exit-hook@1.1.1": [
@@ -851,7 +889,7 @@
     "system"
   ],
   "is-my-json-valid@2.20.6": [
-    "file-system"
+    "fs-read"
   ],
   "generate-function@2.3.1": [
     "code"
@@ -862,17 +900,17 @@
   "jsonpointer@5.0.1": [],
   "is-resolvable@1.1.0": [],
   "js-yaml@3.14.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "argparse@1.0.10": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "sprintf-js@1.0.3": [],
   "esprima@4.0.1": [
-    "file-system",
     "system",
+    "fs-read",
     "code"
   ],
   "json-stable-stringify@1.2.1": [
@@ -914,7 +952,9 @@
   "callsites@0.2.0": [],
   "shelljs@0.7.8": [
     "system",
-    "file-system",
+    "fs-read",
+    "fs-meta",
+    "fs-write",
     "command"
   ],
   "strip-bom@3.0.0": [],
@@ -922,7 +962,8 @@
   "ajv-keywords@1.5.1": [],
   "ajv@6.12.6": [
     "system",
-    "file-system"
+    "fs-write",
+    "fs-read"
   ],
   "fast-deep-equal@3.1.3": [],
   "fast-json-stable-stringify@2.1.0": [],
@@ -941,7 +982,8 @@
   "eslint-module-utils@2.12.0": [
     "system",
     "crypto",
-    "file-system"
+    "file-system",
+    "fs-read"
   ],
   "debug@3.2.7": [
     "addon",
@@ -955,14 +997,14 @@
   "pkg-up@1.0.0": [],
   "find-up@1.1.2": [],
   "path-exists@2.1.0": [
-    "file-system"
+    "fs-read"
   ],
   "pinkie-promise@2.0.1": [],
   "pinkie@2.0.4": [
     "system"
   ],
   "jsx-ast-utils@1.4.1": [
-    "file-system"
+    "fs-read"
   ],
   "array.prototype.find@2.2.3": [],
   "define-properties@1.2.1": [],
@@ -970,7 +1012,8 @@
     "code",
     "command",
     "system",
-    "file-system"
+    "fs-write",
+    "fs-read"
   ],
   "array-buffer-byte-length@1.0.2": [],
   "is-array-buffer@3.0.5": [],
@@ -1052,18 +1095,18 @@
   "es-shim-unscopables@1.0.2": [],
   "standard-engine@7.0.0": [
     "system",
-    "file-system"
+    "fs-read"
   ],
   "deglob@2.1.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "find-root@1.1.0": [
     "file-system"
   ],
   "pkg-config@1.1.1": [
-    "file-system",
-    "system"
+    "system",
+    "fs-read"
   ],
   "debug-log@1.0.1": [
     "system"
@@ -1085,7 +1128,7 @@
   "p-limit@1.3.0": [],
   "p-try@1.0.0": [],
   "path-exists@3.0.0": [
-    "file-system"
+    "fs-read"
   ],
   "load-json-file@4.0.0": [],
   "parse-json@4.0.0": [],
@@ -1098,11 +1141,12 @@
   "make-error@1.3.6": [],
   "safe-buffer@5.2.1": [],
   "uglify-js@3.19.3": [
-    "file-system",
     "addon",
     "system",
     "code",
-    "network"
+    "fs-read",
+    "fs-write",
+    "network-ip"
   ],
   "vinyl-sourcemaps-apply@0.2.1": [],
   "should@11.2.1": [],

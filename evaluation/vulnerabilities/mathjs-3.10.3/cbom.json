@@ -5,9 +5,9 @@
     "code"
   ],
   "mathjs@3.10.3": [
-    "file-system",
     "system",
     "code",
+    "fs-read",
     "addon"
   ],
   "seed-random@2.2.0": [],
