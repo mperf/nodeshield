@@ -226,7 +226,7 @@ function getCapabilitiesForFile(content) {
 		if (expr.test(content)) {
 			// Attempt to detect protocol from literal URLs in the source
 			const httpsExpr = /https:\/\//gi;
-			const httpExpr = /(?<!https:)\/\/http:\/\//gi;
+			const httpExpr = /http:\/\//gi;
 			const ipExpr = /(?:\b(?:\d{1,3}\.){3}\d{1,3}\b|\[(?:[0-9a-fA-F]{0,4}:)*[0-9a-fA-F]{0,4}\])/;
 
 			if (httpsExpr.test(content)) {
@@ -263,6 +263,38 @@ function getCapabilitiesForFile(content) {
 			fileCapabilities.add(capabilities.Names.EXECUTE_CODE);
 		}
 	}
+
+	// --- Fine-Grained File System Checks ---
+    {   
+        if (fileCapabilities.has(capabilities.Names.FILE_SYSTEM)) {
+
+			var finerGrainedFound = false;
+            // Read methods
+            const readMethods = /\b(?:readFile|readFileSync|readdir|readdirSync|stat|statSync|lstat|lstatSync|createReadStream|access|accessSync)\b/g;
+            if (readMethods.test(content)) {
+                fileCapabilities.add(capabilities.Names.FS_READ);
+				finerGrainedFound = true;
+            }
+
+            // Write methods
+            const writeMethods = /\b(?:writeFile|writeFileSync|appendFile|appendFileSync|createWriteStream|mkdir|mkdirSync|rm|rmSync|rename|renameSync|copyFile|copyFileSync)\b/g;
+            if (writeMethods.test(content)) {
+                fileCapabilities.add(capabilities.Names.FS_WRITE);
+				finerGrainedFound = true;
+            }
+
+            // Meta methods
+            const metaMethods = /\b(?:chmod|chmodSync|chown|chownSync|utimes|utimesSync)\b/g;
+            if (metaMethods.test(content)) {
+                fileCapabilities.add(capabilities.Names.FS_META);
+				finerGrainedFound = true;
+            }
+
+			if (finerGrainedFound) {
+				fileCapabilities.delete(capabilities.Names.FILE_SYSTEM);
+			}
+        }
+    }
 
 	return fileCapabilities;
 }
