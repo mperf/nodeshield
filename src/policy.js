@@ -296,6 +296,45 @@ function getCapabilitiesForFile(content) {
         }
     }
 
+	// --- Fine-Grained Crypto Checks ---
+	{
+		if (fileCapabilities.has(capabilities.Names.CRYPTOGRAPHY)) {
+			var finerGrainedFound = false;
+			
+			// Random methods
+			const randomMethods = /\b(?:randomBytes|randomFill|randomFillSync|pseudoRandomBytes|randomUUID)\b/g;
+			if (randomMethods.test(content)) {
+				fileCapabilities.add(capabilities.Names.CRYPTO_RANDOM);
+				finerGrainedFound = true;
+			}
+
+			// Hash methods
+			const hashMethods = /\b(?:createHash|createHmac)\b/g;
+			if (hashMethods.test(content)) {
+				fileCapabilities.add(capabilities.Names.CRYPTO_HASH);
+				finerGrainedFound = true;
+			}
+
+			// Key methods
+			const keyMethods = /\b(?:createSecretKey|createPublicKey|createPrivateKey|generateKeyPair|generateKeyPairSync|generateKey)\b/g;
+			if (keyMethods.test(content)) {
+				fileCapabilities.add(capabilities.Names.CRYPTO_KEY);
+				finerGrainedFound = true;
+			}
+
+			// Crypto ops methods
+			const cryptoOpsMethods = /\b(?:createCipher|createDecipher|createCipheriv|createDecipheriv|sign|verify|publicEncrypt|privateDecrypt)\b/g;
+			if (cryptoOpsMethods.test(content)) {
+				fileCapabilities.add(capabilities.Names.CRYPTO_CRYPTOOPS);
+				finerGrainedFound = true;
+			}
+
+			if (finerGrainedFound) {
+				fileCapabilities.delete(capabilities.Names.CRYPTOGRAPHY);
+			}
+		}
+	}
+
 	return fileCapabilities;
 }
 

@@ -17,7 +17,7 @@
     "system"
   ],
   "commander@2.20.3": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -94,7 +94,7 @@
   "object-keys@1.1.1": [],
   "xtend@4.0.2": [],
   "dtslint@0.1.2": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "fs-promise@2.0.3": [
@@ -119,9 +119,9 @@
     "fs-write"
   ],
   "mz@2.7.0": [
-    "command",
+    "cmd-exec",
     "system",
-    "crypto",
+    "crypto-random",
     "network-dns",
     "fs-read",
     "fs-write",
@@ -136,22 +136,23 @@
   "typescript@2.2.0": [
     "fs-read",
     "system",
-    "crypto",
     "code",
     "fs-write",
+    "crypto-hash",
     "network-ip",
-    "command",
-    "network-https"
+    "cmd-exec",
+    "network-https",
+    "crypto-cryptoops"
   ],
   "mocha@2.5.3": [
     "system",
     "fs-read",
     "fs-write",
-    "command",
+    "cmd-exec",
     "file-system"
   ],
   "commander@2.3.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "debug@2.2.0": [
@@ -165,7 +166,7 @@
   "glob@3.2.11": [
     "system",
     "fs-read",
-    "command",
+    "cmd-exec",
     "code",
     "fs-write"
   ],
@@ -180,7 +181,7 @@
     "network-http"
   ],
   "growl@1.9.2": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],

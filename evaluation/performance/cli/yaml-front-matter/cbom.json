@@ -150,21 +150,21 @@
   "private@0.1.8": [],
   "slash@1.0.0": [],
   "babel-loader@7.1.5": [
-    "crypto",
     "system",
     "fs-read",
     "fs-write",
+    "crypto-hash",
     "file-system"
   ],
   "webpack@4.44.2": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system",
     "code",
     "fs-write",
     "fs-read",
     "network-http",
-    "crypto",
+    "crypto-hash",
     "network-ip"
   ],
   "@webassemblyjs/ast@1.9.0": [
@@ -258,7 +258,7 @@
     "system"
   ],
   "loader-utils@1.4.0": [
-    "crypto"
+    "crypto-hash"
   ],
   "json5@1.0.1": [
     "system",
@@ -378,7 +378,7 @@
     "system"
   ],
   "util@0.10.3": [
-    "command",
+    "cmd-exec",
     "system",
     "code"
   ],
@@ -391,11 +391,11 @@
     "system"
   ],
   "buffer@4.9.2": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-write",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "base64-js@1.5.1": [],
   "ieee754@1.2.1": [],
@@ -405,19 +405,23 @@
   ],
   "crypto-browserify@3.12.0": [
     "code",
-    "crypto",
-    "system"
+    "system",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-cryptoops",
+    "crypto"
   ],
   "browserify-cipher@1.0.1": [
-    "crypto"
+    "crypto-cryptoops",
+    "crypto-random"
   ],
   "browserify-aes@1.2.0": [
-    "crypto"
+    "crypto-cryptoops"
   ],
   "buffer-xor@1.0.3": [],
   "cipher-base@1.0.4": [],
   "create-hash@1.2.0": [
-    "crypto"
+    "crypto-hash"
   ],
   "md5.js@1.3.5": [],
   "hash-base@3.1.0": [],
@@ -429,15 +433,16 @@
   "sha.js@2.4.11": [
     "system",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "evp_bytestokey@1.0.3": [],
   "browserify-des@1.0.2": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "des.js@1.0.1": [
     "code",
-    "crypto"
+    "crypto-cryptoops"
   ],
   "minimalistic-assert@1.0.1": [],
   "browserify-sign@4.2.1": [
@@ -447,19 +452,19 @@
   "browserify-rsa@4.1.0": [],
   "randombytes@2.1.0": [
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "create-hmac@1.1.7": [
-    "crypto"
+    "crypto-hash"
   ],
   "elliptic@6.5.3": [],
   "bn.js@4.11.9": [],
   "brorand@1.1.0": [
-    "crypto"
+    "crypto-random"
   ],
   "hash.js@1.1.7": [
     "system",
-    "crypto"
+    "crypto-hash"
   ],
   "hmac-drbg@1.0.1": [],
   "minimalistic-crypto-utils@1.0.1": [],
@@ -485,12 +490,12 @@
     "fs-read"
   ],
   "public-encrypt@4.0.3": [
-    "crypto",
+    "crypto-cryptoops",
     "fs-read"
   ],
   "randomfill@1.0.4": [
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "domain-browser@1.2.0": [],
   "events@3.2.0": [
@@ -551,7 +556,7 @@
   "ajv-errors@1.0.1": [],
   "terser-webpack-plugin@1.4.5": [
     "system",
-    "crypto"
+    "crypto-hash"
   ],
   "find-cache-dir@2.1.0": [
     "system"
@@ -568,7 +573,8 @@
   "cacache@12.0.4": [
     "file-system",
     "system",
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "lru-cache@5.1.1": [],
   "yallist@3.1.1": [],
@@ -660,8 +666,8 @@
   ],
   "aproba@1.2.0": [],
   "fs-write-stream-atomic@1.0.10": [
-    "crypto",
-    "system"
+    "system",
+    "crypto-hash"
   ],
   "iferr@0.1.5": [],
   "imurmurhash@0.1.4": [],
@@ -673,7 +679,7 @@
   "run-queue@1.0.3": [],
   "promise-inflight@1.0.1": [],
   "ssri@6.0.1": [
-    "crypto"
+    "crypto-hash"
   ],
   "unique-filename@1.1.1": [
     "code"
@@ -714,13 +720,13 @@
     "network-https"
   ],
   "commander@2.20.3": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
   ],
   "source-map-support@0.5.19": [
-    "command",
+    "cmd-worker",
     "system",
     "code",
     "fs-read"
@@ -729,7 +735,7 @@
   "source-list-map@2.0.1": [],
   "worker-farm@1.7.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write",
     "file-system"
@@ -899,15 +905,15 @@
     "fs-read"
   ],
   "etag@1.8.1": [
-    "crypto",
-    "fs-read"
+    "fs-read",
+    "crypto-hash"
   ],
   "fresh@0.5.2": [],
   "mitt@1.2.0": [],
   "browser-sync-ui@2.29.3": [
     "fs-read",
     "network-http",
-    "crypto",
+    "crypto-hash",
     "system",
     "code"
   ],
@@ -935,13 +941,14 @@
   "engine.io-parser@5.2.3": [],
   "ws@8.17.1": [
     "system",
-    "crypto",
+    "crypto-random",
     "network-http",
+    "crypto-hash",
     "network-https",
     "network-ip"
   ],
   "xmlhttprequest-ssl@2.1.2": [
-    "command",
+    "cmd-exec",
     "network-http",
     "network-https",
     "system",
@@ -1013,9 +1020,9 @@
     "system",
     "network-ip",
     "fs-read",
-    "crypto",
     "network-http",
-    "network-https"
+    "network-https",
+    "crypto-random"
   ],
   "debug@4.3.2": [
     "system"
@@ -1048,7 +1055,7 @@
     "network-http"
   ],
   "openurl@1.1.1": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "emoji-regex@8.0.0": [],
@@ -1061,7 +1068,7 @@
     "fs-write"
   ],
   "opn@5.3.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "portscanner@2.2.0": [
@@ -1136,7 +1143,7 @@
     "fs-read"
   ],
   "base64id@2.0.0": [
-    "crypto"
+    "crypto-random"
   ],
   "cors@2.8.5": [],
   "vary@1.1.2": [],
@@ -1149,8 +1156,8 @@
   "undici-types@6.20.0": [],
   "cookie@0.7.2": [],
   "socket.io-adapter@2.5.5": [
-    "crypto",
     "network-ip",
+    "crypto-random",
     "system"
   ],
   "ua-parser-js@1.0.40": [
@@ -1299,7 +1306,7 @@
   "path-root-regex@0.1.2": [],
   "flagged-respawn@1.0.1": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "object.map@1.0.1": [],
   "make-iterator@1.0.1": [],
@@ -1337,11 +1344,11 @@
   "tildify@1.2.0": [],
   "v8flags@2.1.1": [
     "system",
-    "crypto",
-    "command",
+    "cmd-exec",
     "network-http",
     "network-ip",
-    "fs-read"
+    "fs-read",
+    "crypto-hash"
   ],
   "user-home@1.1.1": [
     "system"
@@ -1404,7 +1411,7 @@
   ],
   "glob@3.1.21": [
     "system",
-    "command",
+    "cmd-exec",
     "code",
     "fs-write"
   ],
@@ -1446,7 +1453,7 @@
     "fs-read",
     "fs-write",
     "system",
-    "crypto"
+    "crypto-hash"
   ],
   "gulp-rename@1.4.0": [],
   "gulp-sourcemaps@1.12.1": [],
@@ -1538,13 +1545,13 @@
   ],
   "url-join@2.0.5": [],
   "opener@1.4.3": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "optimist@0.6.1": [
     "fs-read",
     "system",
-    "command"
+    "cmd-exec"
   ],
   "minimist@0.0.10": [
     "system"
@@ -1563,9 +1570,9 @@
   ],
   "union@0.5.0": [
     "file-system",
-    "crypto",
     "fs-read",
-    "command",
+    "crypto-hash",
+    "cmd-exec",
     "system",
     "fs-write",
     "network-http",
@@ -1599,7 +1606,7 @@
   "side-channel-weakmap@1.0.2": [],
   "mocha@1.3.2": [
     "system",
-    "command",
+    "cmd-exec",
     "code",
     "fs-read",
     "fs-write"
@@ -1611,7 +1618,7 @@
     "system"
   ],
   "growl@1.5.1": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "jade@0.26.3": [
@@ -1637,7 +1644,7 @@
     "system",
     "fs-read",
     "fs-write",
-    "command",
+    "cmd-exec",
     "fs-meta"
   ],
   "yargs@8.0.2": [
@@ -1763,7 +1770,7 @@
     "network-ip",
     "fs-read",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "jsonparse@1.3.1": [
     "fs-read",
@@ -1812,7 +1819,7 @@
   ],
   "git-raw-commits@1.3.6": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "lodash.template@4.5.0": [
     "system",
@@ -1831,7 +1838,7 @@
   ],
   "git-semver-tags@1.3.6": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "conventional-changelog-ember@0.3.12": [],
   "conventional-changelog-eslint@1.0.9": [],
@@ -1868,11 +1875,11 @@
     "system"
   ],
   "execa@0.7.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "cross-spawn@5.1.0": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -1926,7 +1933,7 @@
     "system"
   ],
   "execa@1.0.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "get-stream@4.1.0": [],
@@ -1951,13 +1958,13 @@
     "system"
   ],
   "cross-spawn@6.0.6": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
   "nice-try@1.0.5": [],
   "envinfo@5.12.1": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read"
   ],
@@ -2052,7 +2059,7 @@
   ],
   "external-editor@2.2.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -2060,10 +2067,10 @@
     "fs-read"
   ],
   "tmp@0.0.33": [
-    "crypto",
     "system",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-random"
   ],
   "mute-stream@0.0.7": [
     "code",
@@ -2080,7 +2087,7 @@
   "symbol-observable@1.0.1": [],
   "jscodeshift@0.5.1": [
     "system",
-    "command",
+    "cmd-exec",
     "network-http",
     "network-https",
     "fs-read",
@@ -2136,7 +2143,7 @@
   "randomatic@3.1.1": [],
   "is-number@4.0.0": [],
   "math-random@1.0.4": [
-    "crypto"
+    "crypto-random"
   ],
   "preserve@0.2.0": [],
   "is-posix-bracket@0.1.1": [],
@@ -2233,18 +2240,18 @@
     "fs-write"
   ],
   "v8-compile-cache@2.2.0": [
-    "crypto",
     "code",
     "system",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-hash"
   ],
   "webpack-addons@1.1.5": [
     "system"
   ],
   "jscodeshift@0.4.1": [
     "system",
-    "command",
+    "cmd-exec",
     "network-http",
     "network-https",
     "fs-read",
@@ -2290,7 +2297,7 @@
   ],
   "external-editor@3.1.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -2355,7 +2362,7 @@
     "fs-read",
     "fs-write",
     "code",
-    "command"
+    "cmd-exec"
   ],
   "dir-glob@2.2.2": [
     "system"
@@ -2384,11 +2391,11 @@
   "type-fest@0.6.0": [],
   "parse-json@5.2.0": [],
   "execa@4.1.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "cross-spawn@7.0.6": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -2462,7 +2469,7 @@
     "system",
     "code",
     "fs-read",
-    "command",
+    "cmd-exec",
     "fs-write"
   ],
   "@types/glob@7.2.0": [],
@@ -2528,7 +2535,7 @@
   "textextensions@2.6.0": [],
   "jake@10.9.2": [
     "system",
-    "command",
+    "cmd-exec",
     "code",
     "fs-read",
     "network-http",
@@ -2566,7 +2573,7 @@
     "fs-read",
     "fs-meta",
     "fs-write",
-    "command",
+    "cmd-exec",
     "file-system"
   ],
   "yeoman-generator@2.0.5": [

@@ -3,10 +3,10 @@
     "system",
     "fs-read",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "commander@2.15.1": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -213,7 +213,7 @@
   "coveralls@3.0.1": [
     "system",
     "fs-read",
-    "command",
+    "cmd-exec",
     "fs-write"
   ],
   "js-yaml@3.11.0": [
@@ -241,7 +241,9 @@
   "request@2.87.0": [
     "system",
     "fs-read",
-    "crypto",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-cryptoops",
     "network-http",
     "network-https",
     "network-ip"
@@ -252,14 +254,17 @@
   "qs@6.5.2": [],
   "uuid@3.2.1": [
     "system",
-    "crypto"
+    "crypto-hash",
+    "crypto-random"
   ],
   "aws-sign2@0.7.0": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "aws4@1.7.0": [
-    "crypto",
-    "system"
+    "system",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "caseless@0.12.0": [],
   "combined-stream@1.0.6": [
@@ -300,8 +305,9 @@
   "json-schema-traverse@0.3.1": [],
   "har-schema@2.0.0": [],
   "http-signature@1.2.0": [
-    "crypto",
-    "network-http"
+    "network-http",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "assert-plus@1.0.0": [
     "system"
@@ -321,6 +327,10 @@
     "system",
     "fs-read",
     "fs-write",
+    "crypto-hash",
+    "crypto-cryptoops",
+    "crypto-random",
+    "crypto-key",
     "crypto"
   ],
   "asn1@0.2.3": [],
@@ -334,17 +344,19 @@
   ],
   "jsbn@0.1.1": [],
   "tweetnacl@0.14.5": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "ecc-jsbn@0.1.1": [
-    "crypto"
+    "crypto-random"
   ],
   "bcrypt-pbkdf@1.0.1": [],
   "is-typedarray@1.0.0": [],
   "isstream@0.1.2": [],
   "json-stringify-safe@5.0.1": [],
   "oauth-sign@0.8.2": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "performance-now@2.1.0": [
     "system"
@@ -365,14 +377,14 @@
   ],
   "docpress@0.7.1": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read"
   ],
   "docpress-base@0.7.4": [
     "system",
     "code",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "autoprefixer@6.5.0": [
     "system"
@@ -402,13 +414,13 @@
   ],
   "js-base64@2.4.5": [],
   "browserify@13.1.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-write",
     "file-system",
     "code",
-    "crypto",
+    "crypto-hash",
     "network-ip"
   ],
   "concat-stream@1.5.2": [],
@@ -430,14 +442,14 @@
   ],
   "assert@1.3.0": [],
   "util@0.10.3": [
-    "command",
+    "cmd-exec",
     "system",
     "code"
   ],
   "inherits@2.0.1": [],
   "browser-pack@6.1.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write",
     "code"
@@ -481,18 +493,18 @@
   "browserify-zlib@0.1.4": [
     "system",
     "fs-read",
-    "crypto",
+    "crypto-hash",
     "file-system"
   ],
   "pako@0.2.9": [
     "system"
   ],
   "buffer@4.9.1": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-write",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "base64-js@1.3.0": [],
   "ieee754@1.1.11": [],
@@ -508,19 +520,23 @@
   ],
   "crypto-browserify@3.12.0": [
     "code",
-    "crypto",
-    "system"
+    "system",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-cryptoops",
+    "crypto"
   ],
   "browserify-cipher@1.0.1": [
-    "crypto"
+    "crypto-cryptoops",
+    "crypto-random"
   ],
   "browserify-aes@1.2.0": [
-    "crypto"
+    "crypto-cryptoops"
   ],
   "buffer-xor@1.0.3": [],
   "cipher-base@1.0.4": [],
   "create-hash@1.2.0": [
-    "crypto"
+    "crypto-hash"
   ],
   "md5.js@1.3.4": [],
   "hash-base@3.0.4": [],
@@ -528,15 +544,16 @@
   "sha.js@2.4.9": [
     "system",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "evp_bytestokey@1.0.3": [],
   "browserify-des@1.0.1": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "des.js@1.0.0": [
     "code",
-    "crypto"
+    "crypto-cryptoops"
   ],
   "minimalistic-assert@1.0.1": [],
   "browserify-sign@4.0.4": [
@@ -544,18 +561,19 @@
   ],
   "bn.js@4.11.8": [],
   "browserify-rsa@4.0.1": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "randombytes@2.0.6": [
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "create-hmac@1.1.7": [
-    "crypto"
+    "crypto-hash"
   ],
   "elliptic@6.4.0": [],
   "brorand@1.1.0": [
-    "crypto"
+    "crypto-random"
   ],
   "hash.js@1.1.3": [
     "system"
@@ -584,18 +602,18 @@
     "fs-read"
   ],
   "public-encrypt@4.0.2": [
-    "crypto",
+    "crypto-cryptoops",
     "fs-read"
   ],
   "randomfill@1.0.4": [
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "deps-sort@2.0.0": [
     "system"
   ],
   "shasum@1.0.2": [
-    "crypto",
+    "crypto-hash",
     "system"
   ],
   "json-stable-stringify@0.0.1": [],
@@ -819,7 +837,7 @@
     "network-ip"
   ],
   "commander@2.8.1": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -904,12 +922,12 @@
     "fs-read"
   ],
   "stylus@0.54.5": [
-    "command",
+    "cmd-exec",
     "system",
     "code",
     "fs-read",
     "fs-write",
-    "crypto",
+    "crypto-hash",
     "file-system",
     "network-ip",
     "addon"
@@ -1027,7 +1045,7 @@
   "mdurl@1.0.1": [],
   "markdown-it-decorate@1.2.1": [],
   "marked@0.3.6": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-write"
@@ -1130,7 +1148,7 @@
     "system",
     "code",
     "fs-read",
-    "command",
+    "cmd-exec",
     "fs-write"
   ],
   "extend-shallow@2.0.1": [],
@@ -1159,7 +1177,7 @@
   "unyield@0.0.1": [],
   "win-fork@1.1.1": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -1167,7 +1185,7 @@
   "metalsmith-start@2.0.1": [
     "system",
     "fs-read",
-    "crypto",
+    "crypto-hash",
     "file-system",
     "fs-write"
   ],
@@ -1210,7 +1228,7 @@
   "is-number@4.0.0": [],
   "kind-of@6.0.2": [],
   "math-random@1.0.1": [
-    "crypto"
+    "crypto-random"
   ],
   "repeat-element@1.1.2": [],
   "preserve@0.2.0": [],
@@ -1260,7 +1278,7 @@
     "system"
   ],
   "gnode@0.1.1": [
-    "command",
+    "cmd-exec",
     "system",
     "code",
     "fs-read"
@@ -1274,15 +1292,15 @@
     "system",
     "fs-read",
     "code",
-    "command"
+    "cmd-exec"
   ],
   "commoner@0.10.8": [
     "system",
     "file-system",
     "fs-read",
-    "command",
-    "crypto",
-    "fs-write"
+    "cmd-exec",
+    "fs-write",
+    "crypto-hash"
   ],
   "recast@0.11.23": [
     "system",
@@ -1305,7 +1323,7 @@
     "system",
     "fs-read",
     "code",
-    "command",
+    "cmd-exec",
     "fs-write"
   ],
   "yargs@3.27.0": [
@@ -1325,7 +1343,7 @@
   "stringset@0.2.1": [],
   "tryor@0.1.2": [],
   "os-locale@1.4.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "lcid@1.0.0": [],
@@ -1398,9 +1416,9 @@
   ],
   "trim-newlines@1.0.0": [],
   "mz@2.1.0": [
-    "command",
+    "cmd-exec",
     "system",
-    "crypto",
+    "crypto-random",
     "network-dns",
     "fs-read",
     "fs-write",
@@ -1429,8 +1447,8 @@
     "system",
     "code",
     "fs-read",
-    "crypto",
-    "command"
+    "crypto-hash",
+    "cmd-exec"
   ],
   "fs-extra@0.20.1": [
     "system",
@@ -1541,23 +1559,23 @@
   "try-require@1.2.1": [],
   "update-notifier@0.3.2": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "configstore@0.3.2": [
     "system"
   ],
   "object-assign@2.1.1": [],
   "osenv@0.1.5": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "user-home@1.1.1": [
     "system"
   ],
   "uuid@2.0.3": [
-    "command",
+    "cmd-exec",
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "xdg-basedir@1.0.1": [
     "system"
@@ -1645,7 +1663,9 @@
   ],
   "websocket-driver@0.7.0": [
     "system",
-    "crypto"
+    "crypto-random",
+    "crypto-key",
+    "crypto-hash"
   ],
   "http-parser-js@0.4.12": [],
   "websocket-extensions@0.1.3": [],
@@ -1707,7 +1727,7 @@
     "system"
   ],
   "cross-spawn@6.0.5": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -1818,7 +1838,7 @@
   ],
   "external-editor@2.2.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -1826,10 +1846,10 @@
     "fs-read"
   ],
   "tmp@0.0.33": [
-    "crypto",
     "system",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-random"
   ],
   "mute-stream@0.0.7": [
     "code",
@@ -1915,7 +1935,7 @@
     "fs-read"
   ],
   "md5-hex@1.3.0": [
-    "crypto"
+    "crypto-hash"
   ],
   "md5-o-matic@0.1.1": [],
   "write-file-atomic@1.3.4": [
@@ -1948,11 +1968,11 @@
   "p-limit@1.2.0": [],
   "p-try@1.0.0": [],
   "foreground-child@1.5.6": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "cross-spawn@4.0.2": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -1990,7 +2010,7 @@
   "optimist@0.6.1": [
     "fs-read",
     "system",
-    "command"
+    "cmd-exec"
   ],
   "wordwrap@0.0.3": [
     "fs-read"
@@ -2093,13 +2113,13 @@
   "object.pick@1.3.0": [],
   "resolve-from@2.0.0": [],
   "spawn-wrap@1.4.2": [
-    "command",
-    "crypto",
+    "cmd-exec",
     "system",
     "code",
     "fs-read",
     "fs-write",
     "fs-meta",
+    "crypto-random",
     "file-system"
   ],
   "test-exclude@4.2.1": [
@@ -2120,11 +2140,11 @@
     "system"
   ],
   "execa@0.7.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "cross-spawn@5.1.0": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -2140,7 +2160,7 @@
     "system"
   ],
   "istanbul-lib-instrument@2.3.0": [
-    "crypto",
+    "crypto-hash",
     "system"
   ],
   "@babel/generator@7.0.0-beta.51": [
@@ -2178,8 +2198,9 @@
     "fs-read",
     "network-https",
     "network-ip",
-    "crypto",
-    "fs-write"
+    "fs-write",
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "@types/estree@0.0.39": [],
   "@types/node@10.5.0": [],
@@ -2269,8 +2290,9 @@
   "typedarray-to-buffer@1.0.4": [],
   "levelup@0.18.6": [
     "system",
-    "crypto",
-    "fs-read"
+    "fs-read",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "prr@0.0.0": [],
   "semver@2.3.2": [
@@ -2279,10 +2301,11 @@
     "fs-read"
   ],
   "bl@0.8.2": [
-    "crypto",
     "system",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-random",
+    "crypto-hash"
   ],
   "deferred-leveldown@0.2.0": [
     "system"
@@ -2292,9 +2315,9 @@
     "system"
   ],
   "rollup-plugin-node-globals@1.2.1": [
-    "crypto",
     "system",
-    "code"
+    "code",
+    "crypto-random"
   ],
   "rollup-plugin-node-resolve@3.3.0": [
     "fs-read"
@@ -2307,7 +2330,7 @@
     "system",
     "fs-read",
     "fs-write",
-    "command",
+    "cmd-exec",
     "fs-meta"
   ],
   "yargs@8.0.2": [
@@ -2384,7 +2407,7 @@
   "parse-github-repo-url@1.4.1": [],
   "git-raw-commits@1.3.6": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "dargs@4.1.0": [],
   "lodash.template@4.4.0": [
@@ -2402,7 +2425,7 @@
   ],
   "git-semver-tags@1.3.6": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "conventional-changelog-ember@0.3.12": [],
   "conventional-changelog-eslint@1.0.9": [],
@@ -2462,7 +2485,7 @@
     "network-http",
     "file-system",
     "code",
-    "command"
+    "cmd-exec"
   ],
   "has@1.0.3": [],
   "deep-equal@1.0.1": [],

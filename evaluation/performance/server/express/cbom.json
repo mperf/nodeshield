@@ -6,8 +6,11 @@
     "network-https",
     "code",
     "network-ip",
-    "command",
-    "crypto",
+    "cmd-exec",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-key",
+    "crypto-cryptoops",
     "network-udp",
     "network-dns",
     "fs-meta",
@@ -16,7 +19,8 @@
   "cookie-parser@1.4.7": [],
   "cookie@0.7.2": [],
   "cookie-signature@1.0.6": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "debug@2.6.9": [
     "addon",
@@ -26,7 +30,7 @@
   ],
   "ms@2.0.0": [],
   "ejs@2.6.2": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-write",
     "code",
@@ -82,8 +86,8 @@
   "encodeurl@1.0.2": [],
   "escape-html@1.0.3": [],
   "etag@1.8.1": [
-    "crypto",
-    "fs-read"
+    "fs-read",
+    "crypto-hash"
   ],
   "finalhandler@1.1.1": [
     "system"

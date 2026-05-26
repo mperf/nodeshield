@@ -4,13 +4,7 @@ generate() {
 	testcase="$1"
 
 	echo "generating CBOM for $testcase..."
-	cd "$testcase/$testcase" || exit 1
-
-	# Back up the existing coarse CBOM if it exists
-    if [ -f '../cbom.json' ]; then
-        mv '../cbom.json' '../cbom.coarse.json'
-        echo "Backed up existing cbom.json to cbom.coarse.json"
-    fi
+	cd "$testcase/$testcase" || exit 
 
 	if [ ! -f './package-lock.json' ]; then
 		cp '../package-lock.json' '.'

@@ -4,7 +4,7 @@
     "fs-read"
   ],
   "commander@2.17.1": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -76,7 +76,7 @@
     "system"
   ],
   "cross-spawn@6.0.5": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -233,7 +233,7 @@
   ],
   "external-editor@2.2.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -241,10 +241,10 @@
     "fs-read"
   ],
   "tmp@0.0.33": [
-    "crypto",
     "system",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-random"
   ],
   "os-tmpdir@1.0.2": [
     "system"
@@ -326,8 +326,9 @@
     "fs-read",
     "network-https",
     "network-ip",
-    "crypto",
-    "fs-write"
+    "fs-write",
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "@types/estree@0.0.39": [],
   "@types/node@10.9.1": [],
@@ -346,7 +347,7 @@
     "network-ip"
   ],
   "commander@2.16.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -365,7 +366,7 @@
     "network-http",
     "file-system",
     "code",
-    "command"
+    "cmd-exec"
   ],
   "minimist@1.2.0": [
     "system"

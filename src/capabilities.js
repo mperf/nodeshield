@@ -21,7 +21,6 @@ export const Names = Object.freeze({
 	FS_WRITE: "fs-write",
 	FS_META: "fs-meta",
 	// Fine-grained command/process execution sub-capabilities
-	CMD_SPAWN: "cmd-spawn",
 	CMD_EXEC: "cmd-exec",
 	CMD_WORKER: "cmd-worker",
 	SYSTEM: "system",
@@ -30,12 +29,6 @@ export const Names = Object.freeze({
 export const Map = Object.freeze({
 	[Names.CRYPTOGRAPHY]: ["crypto", "node:crypto"],
 	[Names.FILE_SYSTEM]: ["fs", "node:fs", "fs/promises", "node:fs/promises"],
-	[Names.EXECUTE_COMMAND]: [
-		"child_process",
-		"node:child_process",
-		"worker_threads",
-		"node:worker_threads",
-	],
 	[Names.EXECUTE_CODE]: ["vm", "node:vm"],
 	// Sub-capability mappings for finer-grained enforcement
 	[Names.NETWORK_HTTPS]: ["https", "node:https", "node:http2", "http2"],
@@ -44,13 +37,7 @@ export const Map = Object.freeze({
 	[Names.NETWORK_DNS]: ["dns", "node:dns", "dns/promises", "node:dns/promises"],
 	[Names.NETWORK_UDP]: ["dgram", "node:dgram"],
 	// Command/process execution sub-capability mappings
-	[Names.CMD_SPAWN]: ["child_process", "node:child_process"],
 	[Names.CMD_EXEC]: ["child_process", "node:child_process"],
 	[Names.CMD_WORKER]: ["worker_threads", "node:worker_threads"],
-	// Crypto sub-capability mappings
-	[Names.CRYPTO_RANDOM]: ["crypto", "node:crypto"],
-	[Names.CRYPTO_HASH]: ["crypto", "node:crypto"],
-	[Names.CRYPTO_KEY]: ["crypto", "node:crypto"],
-	[Names.CRYPTO_CRYPTOOPS]: ["crypto", "node:crypto"],
 	[Names.SYSTEM]: ["os", "node:os", "process", "node:process"],
 });

@@ -5,14 +5,14 @@
   ],
   "colors@0.6.2": [],
   "commander@2.1.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
   ],
   "mocha@1.3.2": [
     "system",
-    "command",
+    "cmd-exec",
     "code",
     "fs-read",
     "fs-write"
@@ -21,7 +21,7 @@
     "system"
   ],
   "growl@1.5.1": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "jade@0.26.3": [

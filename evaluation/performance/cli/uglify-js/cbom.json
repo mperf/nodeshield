@@ -5,14 +5,15 @@
     "code",
     "fs-read",
     "fs-write",
-    "crypto",
-    "command",
+    "cmd-exec",
     "network-https",
     "network-ip",
-    "network-http"
+    "crypto-hash",
+    "network-http",
+    "crypto-random"
   ],
   "commander@2.16.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"

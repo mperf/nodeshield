@@ -5,7 +5,7 @@
     "fs-write"
   ],
   "commander@2.20.3": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -14,13 +14,13 @@
     "system"
   ],
   "browserify@14.5.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-write",
     "file-system",
     "code",
-    "crypto",
+    "crypto-hash",
     "network-ip"
   ],
   "concat-stream@1.5.2": [],
@@ -37,7 +37,7 @@
     "network-ip",
     "fs-read",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "jsonparse@1.3.1": [
     "fs-read",
@@ -81,7 +81,7 @@
   "inherits@2.0.3": [],
   "browser-pack@6.1.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write",
     "code"
@@ -150,19 +150,23 @@
   ],
   "crypto-browserify@3.12.1": [
     "code",
-    "crypto",
-    "system"
+    "system",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-cryptoops",
+    "crypto"
   ],
   "browserify-cipher@1.0.1": [
-    "crypto"
+    "crypto-cryptoops",
+    "crypto-random"
   ],
   "browserify-aes@1.2.0": [
-    "crypto"
+    "crypto-cryptoops"
   ],
   "buffer-xor@1.0.3": [],
   "cipher-base@1.0.6": [],
   "create-hash@1.2.0": [
-    "crypto"
+    "crypto-hash"
   ],
   "md5.js@1.3.5": [],
   "hash-base@3.0.5": [],
@@ -170,15 +174,16 @@
   "sha.js@2.4.11": [
     "system",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "evp_bytestokey@1.0.3": [],
   "browserify-des@1.0.2": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "des.js@1.1.0": [
     "code",
-    "crypto"
+    "crypto-cryptoops"
   ],
   "minimalistic-assert@1.0.1": [],
   "browserify-sign@4.2.3": [
@@ -188,19 +193,19 @@
   "browserify-rsa@4.1.1": [],
   "randombytes@2.1.0": [
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "create-hmac@1.1.7": [
-    "crypto"
+    "crypto-hash"
   ],
   "elliptic@6.6.1": [],
   "bn.js@4.12.1": [],
   "brorand@1.1.0": [
-    "crypto"
+    "crypto-random"
   ],
   "hash.js@1.1.7": [
     "system",
-    "crypto"
+    "crypto-hash"
   ],
   "hmac-drbg@1.0.1": [],
   "minimalistic-crypto-utils@1.0.1": [],
@@ -224,12 +229,12 @@
     "fs-read"
   ],
   "public-encrypt@4.0.3": [
-    "crypto",
+    "crypto-cryptoops",
     "fs-read"
   ],
   "randomfill@1.0.4": [
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "deps-sort@2.0.1": [
     "system"
@@ -237,7 +242,7 @@
   "shasum-object@1.0.0": [
     "system",
     "fs-read",
-    "crypto"
+    "crypto-hash"
   ],
   "fast-safe-stringify@2.1.1": [],
   "subarg@1.0.0": [
@@ -381,7 +386,7 @@
     "system"
   ],
   "shasum@1.0.2": [
-    "crypto",
+    "crypto-hash",
     "system"
   ],
   "json-stable-stringify@0.0.1": [],
@@ -436,7 +441,7 @@
   "coveralls@3.1.1": [
     "system",
     "fs-read",
-    "command"
+    "cmd-exec"
   ],
   "js-yaml@3.14.1": [
     "system",
@@ -461,23 +466,28 @@
   "request@2.88.2": [
     "system",
     "fs-read",
-    "crypto",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-cryptoops",
     "network-http",
     "network-https",
     "network-ip"
   ],
   "uuid@3.4.0": [
     "system",
-    "crypto"
+    "crypto-hash",
+    "crypto-random"
   ],
   "aws-sign2@0.7.0": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "aws4@1.13.2": [
-    "crypto",
     "network-https",
     "network-ip",
-    "system"
+    "system",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "caseless@0.12.0": [],
   "combined-stream@1.0.8": [],
@@ -521,8 +531,9 @@
   ],
   "har-schema@2.0.0": [],
   "http-signature@1.2.0": [
-    "crypto",
-    "network-http"
+    "network-http",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "assert-plus@1.0.0": [
     "system"
@@ -540,6 +551,10 @@
     "system",
     "fs-read",
     "fs-write",
+    "crypto-hash",
+    "crypto-cryptoops",
+    "crypto-random",
+    "crypto-key",
     "crypto"
   ],
   "asn1@0.2.6": [],
@@ -556,17 +571,19 @@
   ],
   "jsbn@0.1.1": [],
   "tweetnacl@0.14.5": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "ecc-jsbn@0.1.2": [
-    "crypto"
+    "crypto-random"
   ],
   "bcrypt-pbkdf@1.0.2": [],
   "is-typedarray@1.0.0": [],
   "isstream@0.1.2": [],
   "json-stringify-safe@5.0.1": [],
   "oauth-sign@0.9.0": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "performance-now@2.1.0": [
     "system"
@@ -595,7 +612,7 @@
     "code",
     "fs-read",
     "fs-write",
-    "crypto",
+    "crypto-hash",
     "file-system"
   ],
   "esprima@2.7.3": [
@@ -688,10 +705,10 @@
     "system",
     "fs-read",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "commander@2.11.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -727,7 +744,7 @@
   ],
   "diff@3.3.1": [],
   "growl@1.10.3": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],

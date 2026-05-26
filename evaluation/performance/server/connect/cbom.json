@@ -6,8 +6,11 @@
     "network-https",
     "code",
     "network-ip",
-    "command",
-    "crypto",
+    "cmd-exec",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-key",
+    "crypto-cryptoops",
     "network-udp",
     "network-dns",
     "fs-meta",
@@ -121,10 +124,12 @@
     "network-http"
   ],
   "keygrip@1.1.0": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "tsscmp@1.0.6": [
-    "crypto",
+    "crypto-random",
+    "crypto-hash",
     "system"
   ]
 }

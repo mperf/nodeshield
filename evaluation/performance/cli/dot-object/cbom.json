@@ -5,7 +5,7 @@
     "fs-write"
   ],
   "commander@2.20.3": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -301,7 +301,7 @@
   "path-root-regex@0.1.2": [],
   "flagged-respawn@1.0.1": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "object.map@1.0.1": [],
   "make-iterator@1.0.1": [],
@@ -341,11 +341,11 @@
   ],
   "v8flags@2.1.1": [
     "system",
-    "crypto",
-    "command",
+    "cmd-exec",
     "network-http",
     "network-ip",
-    "fs-read"
+    "fs-read",
+    "crypto-hash"
   ],
   "user-home@1.1.1": [
     "system"
@@ -407,7 +407,7 @@
   ],
   "glob@3.1.21": [
     "system",
-    "command",
+    "cmd-exec",
     "code",
     "fs-write"
   ],
@@ -469,7 +469,7 @@
     "fs-read"
   ],
   "commander@10.0.1": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],
@@ -483,14 +483,14 @@
     "system"
   ],
   "foreground-child@3.3.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "signal-exit@4.1.0": [
     "system"
   ],
   "cross-spawn@7.0.6": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -573,11 +573,11 @@
   ],
   "dargs@5.1.0": [],
   "execa@0.6.3": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "cross-spawn@5.1.0": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -607,10 +607,10 @@
     "system",
     "fs-read",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "commander@2.9.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -649,7 +649,7 @@
   ],
   "diff@3.2.0": [],
   "growl@1.9.2": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],
@@ -800,7 +800,7 @@
   "eslint-plugin-import@2.2.0": [
     "fs-read",
     "system",
-    "crypto"
+    "crypto-hash"
   ],
   "doctrine@1.5.0": [],
   "eslint-import-resolver-node@0.2.3": [],
@@ -955,7 +955,7 @@
     "fs-read",
     "fs-meta",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "strip-bom@3.0.0": [],
   "co@4.6.0": [],
@@ -981,7 +981,7 @@
   "contains-path@0.1.0": [],
   "eslint-module-utils@2.12.0": [
     "system",
-    "crypto",
+    "crypto-hash",
     "file-system",
     "fs-read"
   ],
@@ -1010,9 +1010,10 @@
   "define-properties@1.2.1": [],
   "es-abstract@1.23.9": [
     "code",
-    "command",
+    "cmd-worker",
     "system",
     "fs-write",
+    "cmd-exec",
     "fs-read"
   ],
   "array-buffer-byte-length@1.0.2": [],

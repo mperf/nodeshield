@@ -17,7 +17,7 @@ cleanup() {
     rm -f "${VICTIM_DIR}/cbom.json"
     rm -rf "${VICTIM_DIR}/node_modules"
     rm -f "${VICTIM_DIR}/package-lock.json"
-    for type in "fs" "network"; do
+    for type in "fs" "network" "crypto"; do
         rm -f "./pkgs/${type}/benign/${TARBALL_NAME}"
         rm -f "./pkgs/${type}/evil/${TARBALL_NAME}"
     done
@@ -25,8 +25,8 @@ cleanup() {
 
 }
 
-if [ "${POC_TYPE}" != "fs" ] && [ "${POC_TYPE}" != "network" ] && [ "${POC_TYPE}" != "clean" ]; then
-    echo "Usage: $0 [fs|network]|clean]"
+if [ "${POC_TYPE}" != "fs" ] && [ "${POC_TYPE}" != "network" ] && [ "${POC_TYPE}" != "crypto" ] && [ "${POC_TYPE}" != "clean" ]; then
+    echo "Usage: $0 [fs|network|crypto]|clean]"
     exit 1
 fi
 

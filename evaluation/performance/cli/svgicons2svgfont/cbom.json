@@ -3,10 +3,10 @@
     "system",
     "fs-write",
     "fs-read",
-    "command"
+    "cmd-exec"
   ],
   "commander@2.12.2": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -73,7 +73,7 @@
   "commitizen@2.9.6": [
     "system",
     "file-system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -238,7 +238,7 @@
   ],
   "external-editor@1.1.1": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -246,7 +246,7 @@
     "code"
   ],
   "spawn-sync@1.0.15": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-write",
@@ -261,11 +261,11 @@
     "system"
   ],
   "tmp@0.0.29": [
-    "crypto",
     "system",
     "fs-read",
     "fs-write",
-    "command",
+    "crypto-random",
+    "cmd-exec",
     "file-system"
   ],
   "os-tmpdir@1.0.2": [
@@ -307,7 +307,7 @@
     "fs-read",
     "fs-meta",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "interpret@1.1.0": [],
   "rechoir@0.6.2": [],
@@ -422,7 +422,7 @@
   "optimist@0.6.1": [
     "fs-read",
     "system",
-    "command"
+    "cmd-exec"
   ],
   "minimist@0.0.10": [
     "system"
@@ -507,7 +507,7 @@
   "parse-github-repo-url@1.4.1": [],
   "git-raw-commits@1.3.0": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "dargs@4.1.0": [],
   "lodash.template@4.4.0": [
@@ -525,7 +525,7 @@
   ],
   "git-semver-tags@1.2.3": [
     "system",
-    "command"
+    "cmd-exec"
   ],
   "conventional-changelog-ember@0.2.9": [
     "fs-read"
@@ -550,14 +550,14 @@
   ],
   "tempfile@1.1.1": [],
   "uuid@2.0.3": [
-    "command",
+    "cmd-exec",
     "system",
-    "crypto"
+    "crypto-random"
   ],
   "coveralls@2.13.3": [
     "system",
     "fs-read",
-    "command",
+    "cmd-exec",
     "fs-write"
   ],
   "js-yaml@3.6.1": [
@@ -582,21 +582,25 @@
   "request@2.79.0": [
     "system",
     "fs-read",
-    "crypto",
+    "crypto-hash",
+    "crypto-cryptoops",
     "network-http",
     "network-https",
     "network-ip"
   ],
   "uuid@3.1.0": [
     "system",
-    "crypto"
+    "crypto-random",
+    "crypto-hash"
   ],
   "aws-sign2@0.6.0": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "aws4@1.6.0": [
-    "crypto",
-    "system"
+    "system",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "caseless@0.11.0": [],
   "combined-stream@1.0.5": [],
@@ -634,19 +638,19 @@
   "hawk@3.1.3": [
     "network-http",
     "system",
-    "crypto",
+    "crypto-hash",
     "network-ip"
   ],
   "hoek@2.16.3": [
-    "crypto",
     "system",
+    "crypto-random",
     "fs-read"
   ],
   "boom@2.10.1": [
     "network-http"
   ],
   "cryptiles@2.0.5": [
-    "crypto"
+    "crypto-random"
   ],
   "sntp@1.0.9": [
     "system",
@@ -654,8 +658,9 @@
     "network-dns"
   ],
   "http-signature@1.1.1": [
-    "crypto",
-    "network-http"
+    "network-http",
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "assert-plus@0.2.0": [
     "system"
@@ -677,6 +682,10 @@
     "system",
     "fs-read",
     "fs-write",
+    "crypto-hash",
+    "crypto-cryptoops",
+    "crypto-random",
+    "crypto-key",
     "crypto"
   ],
   "asn1@0.2.3": [],
@@ -690,16 +699,18 @@
   ],
   "jsbn@0.1.1": [],
   "tweetnacl@0.14.5": [
-    "crypto"
+    "crypto-random",
+    "crypto-cryptoops"
   ],
   "ecc-jsbn@0.1.1": [
-    "crypto"
+    "crypto-random"
   ],
   "bcrypt-pbkdf@1.0.1": [],
   "is-typedarray@1.0.0": [],
   "isstream@0.1.2": [],
   "oauth-sign@0.8.2": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "qs@6.3.2": [],
   "stringstream@0.0.5": [
@@ -752,15 +763,15 @@
   "onetime@2.0.1": [],
   "external-editor@2.1.0": [
     "system",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
   "tmp@0.0.33": [
-    "crypto",
     "system",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-random"
   ],
   "figures@2.0.0": [
     "system"
@@ -808,7 +819,7 @@
     "system"
   ],
   "cross-spawn@5.1.0": [
-    "command",
+    "cmd-exec",
     "system",
     "file-system"
   ],
@@ -948,7 +959,7 @@
     "fs-read",
     "fs-write",
     "code",
-    "crypto"
+    "crypto-hash"
   ],
   "fast-diff@1.1.2": [],
   "jest-docblock@21.2.0": [],
@@ -957,7 +968,7 @@
     "code",
     "fs-read",
     "fs-write",
-    "crypto",
+    "crypto-hash",
     "file-system"
   ],
   "glob@5.0.15": [
@@ -992,7 +1003,7 @@
   "metapak@1.0.1": [
     "file-system",
     "system",
-    "command"
+    "cmd-exec"
   ],
   "bluebird@3.5.1": [
     "system",
@@ -1029,10 +1040,10 @@
     "system",
     "fs-read",
     "fs-write",
-    "command"
+    "cmd-exec"
   ],
   "commander@2.9.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -1054,7 +1065,7 @@
   ],
   "diff@3.2.0": [],
   "growl@1.9.2": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],

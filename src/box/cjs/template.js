@@ -158,6 +158,18 @@ const [___nameImport___, ___nameGuestRequire___] = (function () {
             }
         }
 
+		// Special-case 'crypto' to return the internal crypto shim factory.
+		if (specifier === "crypto" || specifier === "node:crypto") {
+			console.log("[D] intercepting require for 'crypto' to return internal shim");
+			try {
+				const factory = ___nameHostRequire___("___valueInternalModulesPathRelative___/crypto.cjs");
+				return factory.createCryptoShim(___valueContextJSON___);
+			} catch {
+				console.log("[D] failed to load internal crypto module, falling back to host crypto");
+				return ___nameHostRequire___("node:crypto");
+			}
+		}
+
 		/// Internal shims are currently disabled for network modules because they create a confused deputy problem,
 		/// where nodeshield doesn't know which package is using the internal shim at a given time.
 		/// This can be solved similar to 'fs' by creating a separate shim package for each package 

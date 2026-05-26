@@ -4,14 +4,14 @@
     "fs-read",
     "network-http",
     "fs-write",
-    "command",
+    "cmd-exec",
     "code",
     "network-https",
     "network-ip",
     "file-system"
   ],
   "commander@2.9.0": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-meta"
@@ -53,7 +53,7 @@
     "code",
     "network-http",
     "network-ip",
-    "command",
+    "cmd-exec",
     "fs-read",
     "fs-write"
   ],
@@ -157,13 +157,14 @@
   "safe-buffer@5.2.1": [],
   "cookie@0.7.1": [],
   "cookie-signature@1.0.6": [
-    "crypto"
+    "crypto-hash",
+    "crypto-cryptoops"
   ],
   "encodeurl@2.0.0": [],
   "escape-html@1.0.3": [],
   "etag@1.8.1": [
-    "crypto",
-    "fs-read"
+    "fs-read",
+    "crypto-hash"
   ],
   "finalhandler@1.3.1": [
     "system"
@@ -216,11 +217,11 @@
     "system",
     "fs-read",
     "fs-write",
-    "command",
+    "cmd-exec",
     "file-system"
   ],
   "commander@2.3.0": [
-    "command",
+    "cmd-exec",
     "system"
   ],
   "debug@2.0.0": [
@@ -229,7 +230,7 @@
   "ms@0.6.2": [],
   "glob@3.2.3": [
     "system",
-    "command",
+    "cmd-exec",
     "code",
     "fs-write"
   ],
@@ -252,7 +253,7 @@
     "file-system"
   ],
   "growl@1.8.1": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],
@@ -295,8 +296,8 @@
   "type-detect@0.1.1": [],
   "node-uuid@1.4.8": [
     "system",
-    "command",
-    "crypto"
+    "cmd-exec",
+    "crypto-random"
   ],
   "regexpu@1.1.0": [
     "system",
@@ -310,7 +311,7 @@
     "system",
     "fs-read",
     "code",
-    "command"
+    "cmd-exec"
   ],
   "private@0.1.8": [],
   "ast-types@0.6.16": [],
@@ -350,7 +351,7 @@
     "system",
     "fs-read",
     "fs-write",
-    "command",
+    "cmd-exec",
     "file-system"
   ],
   "debug@2.2.0": [
@@ -362,7 +363,7 @@
   "glob@3.2.11": [
     "system",
     "fs-read",
-    "command",
+    "cmd-exec",
     "code",
     "fs-write"
   ],
@@ -370,7 +371,7 @@
     "system"
   ],
   "growl@1.9.2": [
-    "command",
+    "cmd-exec",
     "file-system",
     "system"
   ],
@@ -414,7 +415,7 @@
   ],
   "underscore@1.8.3": [],
   "webcomponents.js@0.5.5": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "network-http",

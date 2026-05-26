@@ -104,6 +104,13 @@ const ___nameImport___ = (function () {
                 .catch(() => import("node:fs/promises"));
         }
 
+		// Special-case 'crypto' imports to use the internal shim factory.
+		if (specifier === "crypto" || specifier === "node:crypto") {
+			return import("___valueInternalModulesPathUrl___/crypto.mjs")
+				.then((mod) => mod.createCryptoShim(___valueContextJSON___))
+				.catch(() => import("node:crypto"));
+		}
+
 		/// Internal shims are currently disabled for network modules because they create a confused deputy problem,
 		/// where nodeshield doesn't know which package is using the internal shim at a given time.
 		/// This can be solved similar to 'fs' by creating a separate shim package for each package 

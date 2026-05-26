@@ -7,7 +7,7 @@
     "system"
   ],
   "marked@0.2.10": [
-    "command",
+    "cmd-exec",
     "system",
     "fs-read",
     "fs-write"

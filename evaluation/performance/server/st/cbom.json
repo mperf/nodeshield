@@ -6,8 +6,11 @@
     "network-https",
     "code",
     "network-ip",
-    "command",
-    "crypto",
+    "cmd-exec",
+    "crypto-random",
+    "crypto-hash",
+    "crypto-key",
+    "crypto-cryptoops",
     "network-udp",
     "network-dns",
     "fs-meta",
@@ -17,10 +20,10 @@
     "network-http",
     "system",
     "fs-read",
-    "command",
+    "cmd-exec",
     "network-dns",
-    "crypto",
-    "fs-write"
+    "fs-write",
+    "crypto-random"
   ],
   "async-cache@1.1.0": [
     "system",
@@ -35,9 +38,10 @@
   "yallist@2.1.2": [],
   "bl@5.1.0": [
     "system",
-    "crypto",
     "fs-read",
-    "fs-write"
+    "fs-write",
+    "crypto-random",
+    "crypto-hash"
   ],
   "buffer@6.0.3": [],
   "base64-js@1.5.1": [],
