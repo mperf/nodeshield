@@ -1,0 +1,71 @@
+=== TESTING (fpr) ===
+> d3-dsv <
+#FP: 0
+#TN: 10
+FPR: 0
+
+> docco <
+#FP: 1
+#TN: 16
+FPR: 0.0588235
+
+> dot-object <
+#FP: 0
+#TN: 12
+FPR: 0
+
+> dox <
+#FP: 0
+#TN: 4
+FPR: 0
+
+> findup <
+#FP: 0
+#TN: 4
+FPR: 0
+
+> html-minifier <
+
+> js-cfb <
+
+> json2csv <
+#FP: 0
+#TN: 7
+FPR: 0
+
+> json-refs <
+#FP: 1
+#TN: 23
+FPR: 0.0416667
+
+> juice <
+
+> metalsmith <
+#FP: 0
+#TN: 4
+FPR: 0
+
+> mocha <
+
+> mockjs <
+#FP: 0
+#TN: 3
+FPR: 0
+
+> sails <
+
+> svgicons2svgfont <
+
+> traceur <
+
+> uglify-js <
+
+> xss <
+#FP: 0
+#TN: 6
+FPR: 0
+
+> yaml-front-matter <
+#FP: 0
+#TN: 3
+FPR: 0
