@@ -180,7 +180,7 @@ module.exports.createFsShim = function(context) {
     });
   }
 
-  return Object.freeze(hostFsModule);
+  return hostFsModule;
 };
 `;
 }
@@ -354,7 +354,7 @@ export function createFsShim(context) {
 
   // Bind the default export so ESM default imports (import fs from 'fs') work properly
   hostFsModule.default = hostFsModule;
-  return Object.freeze(hostFsModule);
+  return hostFsModule;
 }
 `;
 }
